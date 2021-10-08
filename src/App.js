@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import Movie from './Movie.js';
+import InputTest from './InputTest.js';
 
 function App() {
 
@@ -49,6 +50,7 @@ function App() {
             Data courtesy of <a href='https://opentdb.com/'> Open Trivia DB</a>
             </p>
         </footer>
+        <InputTest  />
     </div>
   );
 }
