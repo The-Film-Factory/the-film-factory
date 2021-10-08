@@ -4,13 +4,10 @@ import axios from 'axios';
 const InputTest = () => {
   const [searchValue, setSearchValue] = useState("");
 
-  const getSearch = (e) => {
-    const inputVal = e;
-    setSearchValue(inputVal);
-  }
+  
 
-  const makeQuery = (e) => {
-    e.preventDefault();
+  const makeQuery = () => {
+    
     axios({
                 url: `https://api.themoviedb.org/3/search/movie/`,
                 method: "GET",
@@ -24,9 +21,16 @@ const InputTest = () => {
                 let movieResults = res.data.results;
                 console.log(movieResults);
             });
-
-
   }
+
+  
+  const getSearch = (e) => {
+    const inputVal = e;
+    setSearchValue(inputVal);
+    makeQuery();
+  }
+
+
   return(
     <form onSubmit={makeQuery}>
       <input type="text" value={searchValue} onChange={(e) => getSearch(e.target.value)} />
