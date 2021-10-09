@@ -3,24 +3,23 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 function Movie() {
-    const { movieID } = useParams();
+  const { movieID } = useParams();
 
-    const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState([]);
 
-    useEffect(() => {
+  useEffect(() => {
     async function getSimilarMovies(pageNumber) {
-        console.log(`running`);
-        const dbCall = await axios({
+      const dbCall = await axios({
         url: `https://api.themoviedb.org/3/movie/${movieID}/similar`,
         method: "GET",
         dataResponse: "json",
         params: {
-            api_key: "686f4b568f616a8066ae90d21c06dffe",
-            page: pageNumber,
+          api_key: "686f4b568f616a8066ae90d21c06dffe",
+          page: pageNumber,
         },
-        });
-        const movieResults = await dbCall;
-        return movieResults;
+      });
+      const movieResults = await dbCall;
+      return movieResults;
     }
 
     getSimilarMovies();
@@ -29,52 +28,71 @@ function Movie() {
     const newArray = [];
 
     for (let i = 1; i <= 5; i++) {
-        newArray.push(getSimilarMovies(i));
+      newArray.push(getSimilarMovies(i));
     }
 
     Promise.all(newArray).then((allResponses) => {
-        allResponses.forEach((response) => {
-            //use spread operator to make it into a big array of 100 films for filter
-            promiseArray.push(...response.data.results);
-        });
+      allResponses.forEach((response) => {
+        //use spread operator to make it into a big array of 100 films for filter
+        promiseArray.push(...response.data.results);
+      });
 
-        //filter on foreginMovies
-        const foreignMovies = promiseArray.filter(
-            (movie) => movie.original_language !== "en"
-        );
-//========================== FILTERS OUT THE DUPLICATES???
-        // const foreignMoviesNoDuplicates = foreignMovies.filter((v, i, a) => a.indexOf(v) === i);
-        const foreignMoviesNoDuplicates = [...new Set(foreignMovies)];
-        console.log(foreignMovies, foreignMoviesNoDuplicates);
-//==========================
+      //filter on foreginMovies
+      const foreignMovies = promiseArray.filter(
+        (movie) => movie.original_language !== "en"
+      );
+      //========================== FILTERS OUT THE DUPLICATES???
+      // const foreignMoviesNoDuplicates = foreignMovies.filter((v, i, a) => a.indexOf(v) === i);
+      // const foreignMoviesNoDuplicates = [...new Set(foreignMovies)];
+      // console.log(foreignMovies, foreignMoviesNoDuplicates);
+      //==========================
 
-        setMovie(foreignMoviesNoDuplicates);
+      //LONG FORM
+      //   function removeDuplicates(array, id) {
+      //     var newArray = [];
+      //     var lookupObject = {};
+      //     for (var i in array) {
+      //       lookupObject[array[i][id]] = array[i];
+      //     }
+      //     for (i in lookupObject) {
+      //       newArray.push(lookupObject[i]);
+      //     }
+      //     return newArray;
+      //   }
+
+      //   const uniqueArray = removeDuplicates(foreignMovies, "id");
+
+      const uniqMovies = {};
+      var uniqueArray = foreignMovies.filter(
+        (movie) => !uniqMovies[movie.id] && (uniqMovies[movie.id] = true)
+      );
+      setMovie(uniqueArray);
     });
-    }, [movieID]);
+  }, [movieID]);
 
-    // props no longer needed to pass into .map since state is directly being passed
-    return (
+  // ids no longer needed to pass into .map since state is directly being passed
+  return (
     <section className="movieContainer">
-        <ul>
+      <ul>
         {movie.map(function (currentMovie) {
-            return (
+          return (
             <li key={currentMovie.id}>
-                <div className="textContainer">
+              <div className="textContainer">
                 <h2>{currentMovie.title}</h2>
                 <p>Language: {currentMovie.original_language}</p>
-                </div>
-                <div className="imgContainer">
+              </div>
+              <div className="imgContainer">
                 <img
-                    src={`https://image.tmdb.org/t/p/w500/${currentMovie.poster_path}`}
-                    alt={`Poster for '${currentMovie.title}'`}
+                  src={`https://image.tmdb.org/t/p/w500/${currentMovie.poster_path}`}
+                  alt={`Poster for '${currentMovie.title}'`}
                 />
-                </div>
+              </div>
             </li>
-            );
+          );
         })}
-        </ul>
+      </ul>
     </section>
-    );
+  );
 }
 
 export default Movie;
