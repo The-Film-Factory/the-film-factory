@@ -7,7 +7,31 @@ import InputTest from './InputTest.js';
 
 function App() {
 
+    const [ movie, setMovie ] = useState([]);
+    const movie_id = "501";
+    const newArray = [];
 
+    useEffect(function () {
+        for (let pageNum = 1; pageNum < 5; pageNum++){
+            axios({
+                url: `https://api.themoviedb.org/3/movie/${movie_id}/similar`,
+                method: "GET",
+                dataResponse: "json",
+                params: {
+                    api_key: "686f4b568f616a8066ae90d21c06dffe",
+                    page: pageNum
+            },
+            }).then((res) => {
+                let movieResults = res.data.results;
+                movieResults.forEach(function(movie){
+                    if (movie.original_language !== "en"){
+                        newArray.push(movie);
+                    }
+                })
+            });
+        }
+        setMovie(newArray);
+    }, []);
 
     return (
         <div className="App">
@@ -16,7 +40,7 @@ function App() {
                 <h2>Popular Movies to Watch</h2>
             </header>
             <main>
-                <Movie />
+                <Movie foreignLanguageMovies={movie} />
             </main>
             <footer>
                 <p>
