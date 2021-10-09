@@ -1,10 +1,15 @@
 import {useEffect, useState} from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom'
 
 const InputTest = () => {
     const [searchValue, setSearchValue] = useState("");
     // const [searchValue, setSearchValue] = useState("harry potter");
     const [movieResults, setMovieResults] = useState([]);
+
+    const [moviePicked, setMoviePicked] = useState({})
+
+
 
     //useeffect instead of a function
     useEffect(function(){
@@ -36,15 +41,27 @@ const InputTest = () => {
     //bestMatch() looks for the first result from the query so far when we hit submit.
     const bestMatch = function(e){
         e.preventDefault();
-        console.log(movieResults[0].id);
-        // console.log(movieResults[0]);
+        const newObj = movieResults[0];
+        
+        setMoviePicked({...newObj})
+        console.log(movieResults[0]);
     }
 
     return(
+      <>  
+        
         <form onSubmit={ bestMatch }>
             <input type="text" value={searchValue} onChange={(e) => getSearch(e.target.value)} />
             <button>gogogogo</button>
         </form>
+
+        {moviePicked ?
+        <Link to={`/movie/${moviePicked.id}`}>{moviePicked.title} </Link>
+        : null
+        
+        }
+      
+      </>  
     )
 }
 
