@@ -50,10 +50,14 @@ const InputTest = () => {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <>
       {/* on form submit, the selected movie goes to state...*/}
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           value={searchValue}
