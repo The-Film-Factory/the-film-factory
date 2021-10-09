@@ -5,11 +5,11 @@ import {Link} from 'react-router-dom'
 const InputTest = () => {
     const [searchValue, setSearchValue] = useState("");
     // const [searchValue, setSearchValue] = useState("harry potter");
+
     const [movieResults, setMovieResults] = useState([]);
 
+    // create state to store selection 
     const [moviePicked, setMoviePicked] = useState({})
-
-
 
     //useeffect instead of a function
     useEffect(function(){
@@ -31,7 +31,7 @@ const InputTest = () => {
         //end if
     //listens for a searchvalue call
     },[searchValue]);
-  
+
     //unaltered, except I removed the makeQuery call
     const getSearch = (e) => {
         const inputVal = e;
@@ -42,26 +42,27 @@ const InputTest = () => {
     const bestMatch = function(e){
         e.preventDefault();
         const newObj = movieResults[0];
-        
+
+        // spread new result into state 
         setMoviePicked({...newObj})
         console.log(movieResults[0]);
     }
 
     return(
-      <>  
-        
+    <>  
+        {/* on form submit, the selected movie goes to state...*/}
         <form onSubmit={ bestMatch }>
             <input type="text" value={searchValue} onChange={(e) => getSearch(e.target.value)} />
             <button>gogogogo</button>
         </form>
 
+        {/* ...if movie is picked, go to unique id link from the Movie component */}
         {moviePicked ?
         <Link to={`/movie/${moviePicked.id}`}>{moviePicked.title} </Link>
         : null
         
         }
-      
-      </>  
+    </>  
     )
 }
 

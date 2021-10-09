@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import {useParams} from 'react-router-dom';
 
-
 function Movie() {
     const { movieID } = useParams();
 
@@ -12,7 +11,7 @@ function Movie() {
 
     useEffect(function () {
         const newArray = [];
-        for (let pageNum = 1; pageNum < 10; pageNum++){
+        for (let pageNum = 1; pageNum < 5; pageNum++){
             axios({
                 url: `https://api.themoviedb.org/3/movie/${movieID}/similar`,
                 method: "GET",
@@ -29,27 +28,41 @@ function Movie() {
                         newArray.push(movie);
                     }
                 })
-                
-                if(pageNum === 9) {
+                // move newArray into useEffect and set a conditional to set state at the end of the loop 
+                if(pageNum === 4) {
                     setMovie(newArray);
                 }
             });
         }
-        
+    // set dependency array to the useParams value 
     }, [movieID]);
     
-    
+    // props no longer needed to pass into .map since state is directly being passed 
     return (
         <section className='movieContainer'>
-            
+            <ul>
             {
                 movie.map(function(currentmovie){
                     console.log(currentmovie);
                     return(
-                        <p>{currentmovie.title}</p>
+                        <>
+                        <li>
+                            <div className='textContainer'>
+                                <h2>{currentmovie.title}</h2>
+                                <p>Language: {currentmovie.original_language}</p> 
+                            </div>
+                            <div className='imgContainer'>
+                                <img
+                                src={`https://image.tmdb.org/t/p/w500/${currentmovie.poster_path}`}
+                                alt={`Poster for '${currentmovie.title}'`}
+                                / >
+                            </div>
+                        </li>
+                        </>
                         )
                 })
             }
+            </ul>
         </section>
     )
 }
