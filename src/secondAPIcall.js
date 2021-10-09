@@ -34,7 +34,9 @@ useEffect(() => {
 
   Promise.all(promiseArray)
     .then(allResponses => {
-      allResponses.forEach(response => newArray.push(response.data.results))
+      allResponses.forEach(response => {
+        newArray.push(response.data.results)
+      })
     })
 
 }, [movieID])
