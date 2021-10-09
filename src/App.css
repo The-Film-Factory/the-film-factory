@@ -27,3 +27,10 @@ img {
   max-width: 100%; 
   object-fit: contain; 
 } 
+
+li.searchResultLists{
+    height:50px;
+    padding:0;
+    margin:0;
+    width:50%;
+}
