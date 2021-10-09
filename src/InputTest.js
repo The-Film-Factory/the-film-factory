@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import ErrorComponent from './ErrorComponent';
 
 //First call to get userInput in English name and make the call to get user search
 //once we received usersearch, we stored in moviePicked state
@@ -46,7 +47,7 @@ const InputTest = () => {
   const bestMatch = function (e) {
     e.preventDefault();
     const newObj = movieResults[0];
-
+    
     // spread new result into state
     setMoviePicked({ ...newObj });
     // console.log(movieResults[0]);
@@ -70,7 +71,8 @@ const InputTest = () => {
 
       {moviePicked ? (
         <Link to={`/movie/${moviePicked.id}`}>{moviePicked.title} </Link>
-      ) : null}
+      ) : null }
+
     </>
   );
 };
