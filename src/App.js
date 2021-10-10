@@ -5,8 +5,10 @@ import InputTest from "./InputTest.js";
 
 function App() {
   return (
-    <Router>
-      <div className="App">
+
+    <div className="App">
+
+      <Router>
 
         <header>
           <h1>The Film Factory</h1>
@@ -27,9 +29,9 @@ function App() {
             Data courtesy of <a href="https://opentdb.com/"> Open Trivia DB</a>
           </p>
         </footer>
-        
-      </div>
-    </Router>
+          
+      </Router>
+    </div>
   );
 }
 
