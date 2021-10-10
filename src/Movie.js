@@ -10,6 +10,7 @@ function Movie() {
   const [movie, setMovie] = useState([]);
 
   useEffect(() => {
+    // to allow us to write asynchronous logic 
     async function getSimilarMovies(pageNumber) {
       const dbCall = await axios({
         url: `https://api.themoviedb.org/3/movie/${movieID}/similar`,
@@ -25,12 +26,15 @@ function Movie() {
     }
 
     const promiseArray = [];
+
+    // create empty array and fill array with movies (promises)
     const newArray = [];
 
     for (let i = 1; i <= 5; i++) {
       newArray.push(getSimilarMovies(i));
     }
 
+    // callback to run when all promises are fulfilled (once movies have returned)
     Promise.all(newArray).then((allResponses) => {
       allResponses.forEach((response) => {
         //use spread operator to make it into a big array of 100 films for filter
@@ -73,6 +77,9 @@ function Movie() {
   // ids no longer needed to pass into .map since state is directly being passed
   return (
     <section className="movieContainer">
+      <p>If you liked <span>djsflJ</span>, you may like...
+      </p>
+
       <ul>
         {movie.map((currentMovie) => {
           return (

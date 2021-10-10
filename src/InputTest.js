@@ -55,11 +55,14 @@ const InputTest = () => {
     <>
       {/* on form submit, the selected movie goes to state...*/}
       <form onSubmit={handleSubmit}>
-        <input
+        {/* nest input inside label */}
+        <label>Search for a movie:
+          <input
           type="text"
           value={searchValue}
           onChange={(e) => getSearch(e.target.value)}
-        />
+        </label>
+
       </form>
 
       {/* ...if movie is picked, go to unique id link from the Movie component */}
@@ -69,7 +72,9 @@ const InputTest = () => {
           moviesPicked.slice(0, 5).map((movie) => {
             return (
               <li key={movie.id} className="searchResultLists">
-                <Link to={`/movie/${movie.id}`}>
+                <Link 
+                to={`/movie/${movie.id}`}
+                >
                   <p>{movie.original_title}</p>
                 </Link>
               </li>
