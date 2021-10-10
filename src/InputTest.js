@@ -73,7 +73,10 @@ const InputTest = () => {
           moviesPicked.slice(0, 5).map((movie) => {
             return (
               <li key={movie.id} className="searchResultLists">
-                <Link to={`/movie/${movie.id}`}>
+                <Link 
+                to={`/movie/${movie.id}`}
+                // onClick={}
+                >
                   <p>{movie.original_title}</p>
                 </Link>
               </li>
