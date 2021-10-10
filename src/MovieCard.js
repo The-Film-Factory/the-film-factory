@@ -18,7 +18,11 @@ const MovieCard = (props) => {
       </div>
       <div className={imgClass}>
         <img
-          src={moviePoster ? `https://image.tmdb.org/t/p/w500/${moviePoster}`: null}
+          src={
+            moviePoster
+              ? `https://image.tmdb.org/t/p/w500/${moviePoster}`
+              : null
+          }
           alt={`Poster for '${movieTitle}'`}
         />
       </div>

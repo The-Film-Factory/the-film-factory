@@ -1,20 +1,17 @@
-import InputTest from "./InputTest.js";
-
+import EnglishMovieSearch from "./EnglishMovieSearch.js";
 
 const Navigation = () => {
-    return (
-        <>
-            <nav>
-                <ul>
-                    <li>
+  return (
+    <>
+      <nav>
+        <ul>
+          <li></li>
+        </ul>
+      </nav>
+      <h1>The Film Factory</h1>
+      <EnglishMovieSearch />
+    </>
+  );
+};
 
-                    </li>
-                </ul>
-            </nav>
-            <h1>The Film Factory</h1>
-            <InputTest />
-        </>
-    )  
-} 
-
-export default Navigation; 
+export default Navigation;

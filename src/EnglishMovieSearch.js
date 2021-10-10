@@ -6,7 +6,7 @@ import MovieCard from "./MovieCard";
 
 //First call to get userInput in English name and make the call to get user search
 //once we received usersearch, we stored in moviePicked state
-const InputTest = () => {
+const EnglishMovieSearch = () => {
   const [searchValue, setSearchValue] = useState("");
   // create state to store selection
   const [moviesPicked, setMoviesPicked] = useState([]);
@@ -52,7 +52,7 @@ const InputTest = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setDropdownVisibility(false);
-    setCurrentMovie(moviesPicked[0])
+    setCurrentMovie(moviesPicked[0]);
   };
 
   return (
@@ -60,56 +60,53 @@ const InputTest = () => {
       {/* on form submit, the selected movie goes to state...*/}
       <form onSubmit={handleSubmit}>
         {/* nest input inside label */}
-        <label>Search for a movie:
+        <label>
+          Search for a movie:
           <input
-          type="text"
-          value={searchValue}
-          onChange={(e) => getSearch(e.target.value)}
+            type="text"
+            value={searchValue}
+            onChange={(e) => getSearch(e.target.value)}
           />
-        
-          </label>
-
+        </label>
       </form>
 
       {/* ...if movie is picked, go to unique id link from the Movie component */}
       <ul>
-
-        {
-            dropdownVisiblity 
-            ?
-            moviesPicked.slice(0, 5).map((movie) => {
-                
-              return (
-                    <li key={movie.id} className="searchResultLists" onClick={function(){
-                        setCurrentMovie(movie);
-                        setDropdownVisibility(false);
-                    }}>
-                    <Link 
-                    to={`/movie/${movie.id}`}
-                    >
-                    <p>{movie.original_title}</p>
-                    </Link>
-                </li>
-                );
-            })
-            :
+        {dropdownVisiblity ? (
+          moviesPicked.slice(0, 5).map((movie) => {
+            return (
+              <li
+                key={movie.id}
+                className="searchResultLists"
+                onClick={function () {
+                  setCurrentMovie(movie);
+                  setDropdownVisibility(false);
+                }}
+              >
+                <Link to={`/movie/${movie.id}`}>
+                  <p>{movie.original_title}</p>
+                </Link>
+              </li>
+            );
+          })
+        ) : (
+          <Link to={`/movie/${currentMovie.id}`}>
             <MovieCard
               //change these classes to style for this card specifically
+              key={currentMovie.id}
               cardClass={"mainTextContainer"}
               imgClass={"imgContainer"}
-
               movieTitle={currentMovie.original_title}
               movieKey={currentMovie.id}
               movieOgLang={currentMovie.original_language}
-              movieTitle={currentMovie.title}
               moviePoster={currentMovie.poster_path}
-            //props that hold the moviecard information
+              //props that hold the moviecard information
             />
-        }
-
+          </Link>
+        )}
       </ul>
     </>
   );
 };
 
-export default InputTest;
+export default EnglishMovieSearch;

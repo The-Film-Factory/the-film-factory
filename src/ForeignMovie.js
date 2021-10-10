@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import MovieCard from "./MovieCard.js";
 
 function Movie() {
@@ -10,7 +10,7 @@ function Movie() {
   const [movie, setMovie] = useState([]);
 
   useEffect(() => {
-    // to allow us to write asynchronous logic 
+    // to allow us to write asynchronous logic
     async function getSimilarMovies(pageNumber) {
       const dbCall = await axios({
         url: `https://api.themoviedb.org/3/movie/${movieID}/similar`,
@@ -45,26 +45,6 @@ function Movie() {
       const foreignMovies = promiseArray.filter(
         (movie) => movie.original_language !== "en"
       );
-      //========================== FILTERS OUT THE DUPLICATES???
-      // const foreignMoviesNoDuplicates = foreignMovies.filter((v, i, a) => a.indexOf(v) === i);
-      // const foreignMoviesNoDuplicates = [...new Set(foreignMovies)];
-      // console.log(foreignMovies, foreignMoviesNoDuplicates);
-      //==========================
-
-      //LONG FORM
-      //   function removeDuplicates(array, id) {
-      //     var newArray = [];
-      //     var lookupObject = {};
-      //     for (var i in array) {
-      //       lookupObject[array[i][id]] = array[i];
-      //     }
-      //     for (i in lookupObject) {
-      //       newArray.push(lookupObject[i]);
-      //     }
-      //     return newArray;
-      //   }
-
-      //   const uniqueArray = removeDuplicates(foreignMovies, "id");
 
       const uniqMovies = {};
       var uniqueArray = foreignMovies.filter(
@@ -77,21 +57,24 @@ function Movie() {
   // ids no longer needed to pass into .map since state is directly being passed
   return (
     <section className="movieContainer">
-      <p>If you liked <span>djsflJ</span>, you may like...
+      <p>
+        If you liked <span>djsflJ</span>, you may like...
       </p>
 
       <ul>
         {movie.map((currentMovie) => {
           return (
-            <MovieCard
-              key={currentMovie.id}
-              movieKey={currentMovie.id}
-              cardClass={"textContainer"}
-              imgClass={"imgContainer"}
-              movieOgLang={currentMovie.original_language}
-              movieTitle={currentMovie.title}
-              moviePoster={currentMovie.poster_path}
-            />
+            <Link to={`/movie/${movieID}/${currentMovie.id}`}>
+              <MovieCard
+                key={currentMovie.id}
+                movieKey={currentMovie.id}
+                cardClass={"textContainer"}
+                imgClass={"imgContainer"}
+                movieOgLang={currentMovie.original_language}
+                movieTitle={currentMovie.title}
+                moviePoster={currentMovie.poster_path}
+              />
+            </Link>
           );
         })}
       </ul>
