@@ -51,6 +51,8 @@ const InputTest = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setDropdownVisibility(false);
+    setCurrentMovie(moviesPicked[0])
   };
 
   return (
