@@ -27,7 +27,6 @@ const InputTest = () => {
             query: searchValue,
           },
         }).then((res) => {
-          // console.log(res.data.results);
           setMovieResults(res.data.results);
         });
       }
@@ -38,11 +37,9 @@ const InputTest = () => {
   );
 
   //unaltered, except I removed the makeQuery call
-  const getSearch = (e) => {
-    let errorCatch = e;
-    if (errorCatch !== " ") {
-      const inputVal = e;
-      setSearchValue(inputVal);
+  const getSearch = (query) => {
+    if (query !== " ") {
+      setSearchValue(query);
       const newObj = movieResults;
       setMoviesPicked(newObj);
     } else {
@@ -64,9 +61,8 @@ const InputTest = () => {
           type="text"
           value={searchValue}
           onChange={(e) => getSearch(e.target.value)}
-          />
         </label>
-        {/* <button>gogogogo</button> */}
+
       </form>
 
       {/* ...if movie is picked, go to unique id link from the Movie component */}
