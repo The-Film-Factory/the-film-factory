@@ -93,22 +93,20 @@ const InputTest = () => {
                 );
             })
             :
-            null   
+            <MovieCard
+              //change these classes to style for this card specifically
+              cardClass={"mainTextContainer"}
+              imgClass={"imgContainer"}
+
+              movieTitle={currentMovie.original_title}
+              movieKey={currentMovie.id}
+              movieOgLang={currentMovie.original_language}
+              movieTitle={currentMovie.title}
+              moviePoster={currentMovie.poster_path}
+            //props that hold the moviecard information
+            />
         }
 
-
-        <MovieCard 
-        //change these classes to style for this card specifically
-            cardClass={"mainTextContainer"} 
-            imgClass={"imgContainer"} 
-
-            movieTitle={currentMovie.original_title} 
-            movieKey={currentMovie.id} 
-            movieOgLang={currentMovie.original_language} 
-            movieTitle={currentMovie.title} 
-            moviePoster={currentMovie.poster_path}
-        //props that hold the moviecard information
-        />    
       </ul>
     </>
   );

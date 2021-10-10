@@ -1,24 +1,24 @@
 import "./styles/App.scss";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Movie from "./Movie.js";
-import InputTest from "./InputTest.js";
+import Navigation from "./Navigation.js";
 
 function App() {
   return (
+    <Router>
+        <div className="App">
 
-    <div className="App">
+        <Route path="/">
+          <header>
+              <Navigation />
+          </header>
+        </Route> 
 
-      <Router>
-
-        <header>
-          <h1>The Film Factory</h1>
-        </header>
-
-        <InputTest />
-
-        <Route path="/movie/:movieID">
-          <Movie />
-        </Route>
+        <main>
+          <Route path="/movie/:movieID">
+            <Movie />
+          </Route>
+        </main>
 
         <footer>
           <p>
@@ -30,8 +30,8 @@ function App() {
           </p>
         </footer>
           
-      </Router>
-    </div>
+      </div>
+    </Router>
   );
 }
 
