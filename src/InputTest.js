@@ -61,7 +61,9 @@ const InputTest = () => {
           type="text"
           value={searchValue}
           onChange={(e) => getSearch(e.target.value)}
-        </label>
+          />
+        
+          </label>
 
       </form>
 
