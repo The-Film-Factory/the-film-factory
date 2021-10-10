@@ -7,11 +7,10 @@ import ErrorComponent from "./ErrorComponent";
 //once we received usersearch, we stored in moviePicked state
 const InputTest = () => {
   const [searchValue, setSearchValue] = useState("");
-  // const [searchValue, setSearchValue] = useState("harry potter");
   // create state to store selection
   const [moviesPicked, setMoviesPicked] = useState([]);
-
   const [movieResults, setMovieResults] = useState([]);
+  const [currentMovie, setCurrentMovie] = useState("");
 
   //useeffect instead of a function
   useEffect(
@@ -73,7 +72,9 @@ const InputTest = () => {
           // moviesPicked.slice()
           moviesPicked.slice(0, 5).map((movie) => {
             return (
-              <li key={movie.id} className="searchResultLists">
+                <li key={movie.id} className="searchResultLists" onClick={function(){
+                    setCurrentMovie(movie);
+                }}>
                 <Link 
                 to={`/movie/${movie.id}`}
                 >
@@ -83,11 +84,19 @@ const InputTest = () => {
             );
           })
         }
-      </ul>
+        <MovieCard 
+        //change these classes to style for this card specifically
+            cardClass={"textContainer"} 
+            imgClass={"imgContainer"} 
 
-      {/* {moviesPicked ? (
-            <Link to={`/movie/${moviesPicked.id}`}>{moviesPicked.title} </Link>
-            ) : null } */}
+            movieTitle={currentMovie.original_title} 
+            movieKey={currentMovie.id} 
+            movieOgLang={currentMovie.original_language} 
+            movieTitle={currentMovie.title} 
+            moviePoster={currentMovie.poster_path}
+        //props that hold the moviecard information
+        />    
+      </ul>
     </>
   );
 };
