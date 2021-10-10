@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
+import MovieCard from './MovieCard.js';  
+
 function Movie() {
   const { movieID } = useParams();
 
@@ -74,20 +76,16 @@ function Movie() {
   return (
     <section className="movieContainer">
       <ul>
-        {movie.map(function (currentMovie) {
+        {movie.map((currentMovie) => {
           return (
-            <li key={currentMovie.id}>
-              <div className="textContainer">
-                <h2>{currentMovie.title}</h2>
-                <p>Language: {currentMovie.original_language}</p>
-              </div>
-              <div className="imgContainer">
-                <img
-                  src={`https://image.tmdb.org/t/p/w500/${currentMovie.poster_path}`}
-                  alt={`Poster for '${currentMovie.title}'`}
-                />
-              </div>
-            </li>
+            <MovieCard
+            movieKey={currentMovie.id} 
+            cardClass={"textContainer"} 
+            imgClass={"imgContainer"} 
+            movieOgLang={currentMovie.original_language} 
+            movieTitle={currentMovie.title} 
+            moviePoster={currentMovie.poster_path}
+            />
           );
         })}
       </ul>
