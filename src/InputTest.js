@@ -51,6 +51,8 @@ const InputTest = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setDropdownVisibility(false);
+    setCurrentMovie(moviesPicked[0])
   };
 
   return (
@@ -76,7 +78,8 @@ const InputTest = () => {
             dropdownVisiblity 
             ?
             moviesPicked.slice(0, 5).map((movie) => {
-                return (
+                
+              return (
                     <li key={movie.id} className="searchResultLists" onClick={function(){
                         setCurrentMovie(movie);
                         setDropdownVisibility(false);
