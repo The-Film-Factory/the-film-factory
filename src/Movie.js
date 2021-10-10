@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
-import MovieCard from './MovieCard.js';  
+import MovieCard from "./MovieCard.js";
 
 function Movie() {
   const { movieID } = useParams();
@@ -23,8 +23,6 @@ function Movie() {
       const movieResults = await dbCall;
       return movieResults;
     }
-
-    getSimilarMovies();
 
     const promiseArray = [];
     const newArray = [];
@@ -79,12 +77,12 @@ function Movie() {
         {movie.map((currentMovie) => {
           return (
             <MovieCard
-            movieKey={currentMovie.id} 
-            cardClass={"textContainer"} 
-            imgClass={"imgContainer"} 
-            movieOgLang={currentMovie.original_language} 
-            movieTitle={currentMovie.title} 
-            moviePoster={currentMovie.poster_path}
+              key={currentMovie.id}
+              cardClass={"textContainer"}
+              imgClass={"imgContainer"}
+              movieOgLang={currentMovie.original_language}
+              movieTitle={currentMovie.title}
+              moviePoster={currentMovie.poster_path}
             />
           );
         })}
