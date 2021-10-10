@@ -58,11 +58,14 @@ const InputTest = () => {
     <>
       {/* on form submit, the selected movie goes to state...*/}
       <form onSubmit={handleSubmit}>
-        <input
+        {/* nest input inside label */}
+        <label>Search for a movie:
+          <input
           type="text"
           value={searchValue}
           onChange={(e) => getSearch(e.target.value)}
-        />
+          />
+        </label>
         {/* <button>gogogogo</button> */}
       </form>
 
@@ -75,7 +78,6 @@ const InputTest = () => {
               <li key={movie.id} className="searchResultLists">
                 <Link 
                 to={`/movie/${movie.id}`}
-                // onClick={}
                 >
                   <p>{movie.original_title}</p>
                 </Link>

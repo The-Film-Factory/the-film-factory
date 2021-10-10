@@ -1,6 +1,6 @@
 const MovieCard = (props) => {
 
-    const { movieKey, cardClass, imgClass, movieOgLang, movieTitle, moviePoster } = props;
+    const { movieKey, cardClass, movieTitle, movieOgLang, imgClass, moviePoster } = props;
 
     return (
         <li key={movieKey}>

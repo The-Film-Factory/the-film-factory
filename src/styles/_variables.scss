@@ -1,37 +1,8 @@
-body {
-  text-align: center;
-  font-size: 125%; 
-  background-color: red; 
-}
+$font-primary: 'Josefin Slab', serif;
+$font-secondary: 'Lato', sans-serif;
 
-.movieContainer ul {
-  width: 90%;
-  display: grid;  
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  
-  gap: 2rem;  
-  margin: 0 auto; 
-  padding: 0; 
-}
-
-li {
-  list-style-type: none;
-  padding: 0; 
-  border: 2px solid black; 
-  display: flex; 
-  flex-direction: column; 
-  justify-content: space-between;
-  padding: 25px; 
-} 
-
-
-img {
-  max-width: 100%; 
-  object-fit: contain; 
-} 
-
-li.searchResultLists{
-    height:50px;
-    padding:0;
-    margin:0;
-    width:50%;
-}
+$color-primary: #DBF0EF;
+$color-secondary: #C7B2D3; 
+$color-tertiary: #ECC79C; 
+// $color-quaternary: 
+// $color-quinary: 
