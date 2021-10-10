@@ -17,8 +17,7 @@ function App() {
         <footer>
           <p>
             Copyright © 2021
-            <a href="https://junocollege.com/">Juno College of Technology</a>
-            (formerly HackerYou)
+            <a href="https://junocollege.com/"> Juno College of Technology</a> (formerly HackerYou)
           </p>
           <p>
             Data courtesy of <a href="https://opentdb.com/"> Open Trivia DB</a>
