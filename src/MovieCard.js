@@ -8,6 +8,8 @@ const MovieCard = (props) => {
     moviePoster,
   } = props;
 
+  /////////////////////////////////////////////////// to do: change null line 21 to placeholder image
+
   return (
     <li key={movieKey}>
       <div className={cardClass}>
@@ -16,7 +18,7 @@ const MovieCard = (props) => {
       </div>
       <div className={imgClass}>
         <img
-          src={`https://image.tmdb.org/t/p/w500/${moviePoster}`}
+          src={moviePoster ? `https://image.tmdb.org/t/p/w500/${moviePoster}`: null}
           alt={`Poster for '${movieTitle}'`}
         />
       </div>
