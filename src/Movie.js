@@ -78,6 +78,7 @@ function Movie() {
           return (
             <MovieCard
               key={currentMovie.id}
+              movieKey={currentMovie.id}
               cardClass={"textContainer"}
               imgClass={"imgContainer"}
               movieOgLang={currentMovie.original_language}
