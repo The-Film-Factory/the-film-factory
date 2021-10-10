@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import ErrorComponent from "./ErrorComponent";
+import MovieCard from "./MovieCard";
 
 //First call to get userInput in English name and make the call to get user search
 //once we received usersearch, we stored in moviePicked state
@@ -11,6 +12,7 @@ const InputTest = () => {
   const [moviesPicked, setMoviesPicked] = useState([]);
   const [movieResults, setMovieResults] = useState([]);
   const [currentMovie, setCurrentMovie] = useState("");
+  const [dropdownVisiblity, setDropdownVisibility] = useState(true);
 
   //useeffect instead of a function
   useEffect(
@@ -41,6 +43,7 @@ const InputTest = () => {
       setSearchValue(query);
       const newObj = movieResults;
       setMoviesPicked(newObj);
+      setDropdownVisibility(true);
     } else {
       console.log("no results");
     }
@@ -68,25 +71,32 @@ const InputTest = () => {
 
       {/* ...if movie is picked, go to unique id link from the Movie component */}
       <ul>
+
         {
-          // moviesPicked.slice()
-          moviesPicked.slice(0, 5).map((movie) => {
-            return (
-                <li key={movie.id} className="searchResultLists" onClick={function(){
-                    setCurrentMovie(movie);
-                }}>
-                <Link 
-                to={`/movie/${movie.id}`}
-                >
-                  <p>{movie.original_title}</p>
-                </Link>
-              </li>
-            );
-          })
+            dropdownVisiblity 
+            ?
+            moviesPicked.slice(0, 5).map((movie) => {
+                return (
+                    <li key={movie.id} className="searchResultLists" onClick={function(){
+                        setCurrentMovie(movie);
+                        setDropdownVisibility(false);
+                    }}>
+                    <Link 
+                    to={`/movie/${movie.id}`}
+                    >
+                    <p>{movie.original_title}</p>
+                    </Link>
+                </li>
+                );
+            })
+            :
+            null   
         }
+
+
         <MovieCard 
         //change these classes to style for this card specifically
-            cardClass={"textContainer"} 
+            cardClass={"mainTextContainer"} 
             imgClass={"imgContainer"} 
 
             movieTitle={currentMovie.original_title} 
