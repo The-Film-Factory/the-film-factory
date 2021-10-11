@@ -47,7 +47,7 @@ function Movie() {
       );
 
       const uniqMovies = {};
-      var uniqueArray = foreignMovies.filter(
+      const uniqueArray = foreignMovies.filter(
         (movie) => !uniqMovies[movie.id] && (uniqMovies[movie.id] = true)
       );
       setMovie(uniqueArray);

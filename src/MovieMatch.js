@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import MovieCard from "./MovieCard";
 import axios from "axios";
 
+import { handlePushToFirebase } from './ourDbFunctions.js';  
+
 const MovieMatch = () => {
 
   const [englishFilmRes, setEnglishFilmRes] = useState([]);
@@ -52,6 +54,10 @@ const MovieMatch = () => {
           moviePoster={foreignFilmRes.poster_path}
         />
       </div>
+      {/* push englishMovieID and foreignMovieID into firebase */} 
+      <button onClick={() => handlePushToFirebase(movieID, foreignMovieID)}>
+        Save to my List
+      </button>
     </div>
   );
 };
