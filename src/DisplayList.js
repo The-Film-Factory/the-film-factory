@@ -9,7 +9,6 @@ const DisplayList = () => {
       setMatchList(data);
     });
   }, []);
-  console.log(matchList);
 
   return (
     <div>
