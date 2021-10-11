@@ -1,4 +1,4 @@
-import { ref, push, set, onValue } from "firebase/database";
+import { ref, push, onValue } from "firebase/database";
 import ourDatabase from "./firebase.js";
 
 const handlePushToFirebase = (englishMovieID, foreignMovieID) => {

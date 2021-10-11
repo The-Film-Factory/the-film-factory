@@ -19,7 +19,6 @@ function App() {
           <Route path="/movie/:movieID">
             <ForeignMovie />
           </Route>
-          {/* This prompts the warning of unique key prop */}
           <Route path="/movie/:movieID/:foreignMovieID">
             <MovieMatch />
           </Route>
