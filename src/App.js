@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import ForeignMovie from "./ForeignMovie.js";
 import Navigation from "./Navigation.js";
 import MovieMatch from "./MovieMatch";
+import DisplayList from "./DisplayList";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/movie/:movieID/:foreignMovieID">
             <MovieMatch />
           </Route>
+          <DisplayList />
         </main>
 
         <footer>
