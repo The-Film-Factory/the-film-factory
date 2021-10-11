@@ -1,37 +1,43 @@
 import "./styles/App.scss";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Movie from "./Movie.js";
-import InputTest from "./InputTest.js";
+import ForeignMovie from "./ForeignMovie.js";
+import Navigation from "./Navigation.js";
+import MovieMatch from "./MovieMatch";
 
 function App() {
   return (
-
-    <div className="App">
-
-      <Router>
-
-        <header>
-          <h1>The Film Factory</h1>
-        </header>
-
-        <InputTest />
-
-        <Route path="/movie/:movieID">
-          <Movie />
+    <Router>
+      <div className="App">
+        <Route path="/">
+          <header>
+            <Navigation />
+          </header>
         </Route>
+
+        <main>
+          <Route path="/movie/:movieID">
+            <ForeignMovie />
+          </Route>
+          <Route path="/movie/:movieID/:foreignMovieID">
+            <MovieMatch />
+          </Route>
+        </main>
 
         <footer>
           <p>
             Copyright © 2021
-            <a href="https://junocollege.com/"> Juno College of Technology</a> (formerly HackerYou)
+            <a href="https://junocollege.com/">
+              {" "}
+              Juno College of Technology
+            </a>{" "}
+            (formerly HackerYou)
           </p>
           <p>
             Data courtesy of <a href="https://opentdb.com/"> Open Trivia DB</a>
           </p>
         </footer>
-          
-      </Router>
-    </div>
+      </div>
+    </Router>
   );
 }
 

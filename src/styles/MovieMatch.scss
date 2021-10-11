@@ -1,0 +1,22 @@
+.matchedMovieContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.movieMatchEnglishCard,
+.movieMatchForeignCard{
+    width: 20%;
+}
+
+.movieMatchEnglishCard{
+    h2{
+        color:red;
+    }
+}
+
+.movieMatchForeignCard{
+    h2{
+        color:blue;
+    }
+}
