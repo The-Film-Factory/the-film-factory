@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import MovieCard from "./MovieCard.js";
 
-function Movie() {
+function ForeignMovie() {
   const { movieID } = useParams();
 
   const [movie, setMovie] = useState([]);
@@ -85,4 +85,4 @@ function Movie() {
   );
 }
 
-export default Movie;
+export default ForeignMovie;
