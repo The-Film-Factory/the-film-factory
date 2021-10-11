@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-// import MovieCard from "./MovieCard";
+import MovieCard from "./MovieCard";
 
 //First call to get userInput in English name and make the call to get user search
 //once we received usersearch, we stored in moviePicked state
@@ -10,7 +10,7 @@ const EnglishMovieSearch = () => {
   // create state to store selection
   const [moviesPicked, setMoviesPicked] = useState([]);
   const [movieResults, setMovieResults] = useState([]);
-  // const [currentMovie, setCurrentMovie] = useState("");
+  const [currentMovie, setCurrentMovie] = useState("");
   const [dropdownVisiblity, setDropdownVisibility] = useState(true);
 
   //useeffect instead of a function
@@ -49,7 +49,7 @@ const EnglishMovieSearch = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setDropdownVisibility(false);
-    // setCurrentMovie(moviesPicked[0]);
+    setCurrentMovie(moviesPicked[0]);
   };
 
   return (
@@ -69,23 +69,38 @@ const EnglishMovieSearch = () => {
 
       {/* ...if movie is picked, go to unique id link from the Movie component */}
       <ul>
-        {dropdownVisiblity
-          ? moviesPicked.slice(0, 5).map((movie) => {
-              return (
-                <li
-                  key={movie.id}
-                  className="searchResultLists"
-                  onClick={function () {
-                    setDropdownVisibility(false);
-                  }}
-                >
-                  <Link to={`/movie/${movie.id}`}>
-                    <p>{movie.original_title}</p>
-                  </Link>
-                </li>
-              );
-            })
-          : null}
+        {dropdownVisiblity ? (
+          moviesPicked.slice(0, 5).map((movie) => {
+            return (
+              <li
+                key={movie.id}
+                className="searchResultLists"
+                onClick={function () {
+                  setCurrentMovie(movie);
+                  setDropdownVisibility(false);
+                }}
+              >
+                <Link to={`/movie/${movie.id}`}>
+                  <p>{movie.original_title}</p>
+                </Link>
+              </li>
+            );
+          })
+        ) : (
+          <Link to={`/movie/${currentMovie.id}`}>
+            <MovieCard
+              //change these classes to style for this card specifically
+              key={currentMovie.id}
+              cardClass={"mainTextContainer"}
+              imgClass={"imgContainer"}
+              movieTitle={currentMovie.original_title}
+              movieKey={currentMovie.id}
+              movieOgLang={currentMovie.original_language}
+              moviePoster={currentMovie.poster_path}
+              //props that hold the moviecard information
+            />
+          </Link>
+        )}
       </ul>
     </>
   );
