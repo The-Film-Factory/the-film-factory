@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import ErrorComponent from "./ErrorComponent";
 import MovieCard from "./MovieCard";
 
 //First call to get userInput in English name and make the call to get user search
@@ -31,8 +30,6 @@ const EnglishMovieSearch = () => {
           setMovieResults(res.data.results);
         });
       }
-      //end if
-      //listens for a searchvalue call
     },
     [searchValue]
   );

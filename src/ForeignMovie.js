@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import MovieCard from "./MovieCard.js";
 
-function Movie() {
+function ForeignMovie() {
   const { movieID } = useParams();
 
   const [movie, setMovie] = useState([]);
@@ -58,13 +58,16 @@ function Movie() {
   return (
     <section className="movieContainer">
       <p>
-        If you liked <span>djsflJ</span>, you may like...
+        If you liked <span>klsjflds</span>, you may like...
       </p>
 
       <ul>
         {movie.map((currentMovie) => {
           return (
-            <Link to={`/movie/${movieID}/${currentMovie.id}`}>
+            <Link
+              to={`/movie/${movieID}/${currentMovie.id}`}
+              key={currentMovie.id}
+            >
               <MovieCard
                 key={currentMovie.id}
                 movieKey={currentMovie.id}
@@ -82,4 +85,4 @@ function Movie() {
   );
 }
 
-export default Movie;
+export default ForeignMovie;

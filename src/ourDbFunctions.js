@@ -1,10 +1,16 @@
-import { ref, push, set, onValue } from 'firebase/database'; 
-import ourDatabase from './firebase.js'; 
+import { ref, push, onValue } from "firebase/database";
+import ourDatabase from "./firebase.js";
 
-export const handlePushToFirebase = (englishMovieID, foreignMovieID) => {
-    const dbRef = ref(ourDatabase); 
-    push(dbRef, { englishMovie: englishMovieID, foreignMovie: foreignMovieID })
-}
+const handlePushToFirebase = (englishMovieID, foreignMovieID) => {
+  const dbRef = ref(ourDatabase);
+  push(dbRef, { englishMovie: englishMovieID, foreignMovie: foreignMovieID });
+};
+
+const handleDisplayData = (callback) => {
+  onValue(ref(ourDatabase), callback);
+};
+
+export { handlePushToFirebase, handleDisplayData };
 
 // db.pushArticle = (dataObject) => {
 //     const postListRef = ref(firebaseApp, '/posts');
