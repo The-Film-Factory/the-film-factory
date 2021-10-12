@@ -1,3 +1,5 @@
+import placeholder from "./assets/noPhoto.svg";
+
 const MovieCard = (props) => {
   const {
     movieKey,
@@ -21,7 +23,7 @@ const MovieCard = (props) => {
           src={
             moviePoster
               ? `https://image.tmdb.org/t/p/w500/${moviePoster}`
-              : null
+              : { placeholder }
           }
           alt={`Poster for '${movieTitle}'`}
         />

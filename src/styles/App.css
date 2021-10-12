@@ -321,10 +321,32 @@ footer {
   margin-top: 25px;
 }
 
-.textContainer {
+.matchedMovieContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.movieMatchEnglishCard,
+.movieMatchForeignCard {
+  width: 20%;
+}
+
+.movieMatchEnglishCard h2 {
   color: red;
 }
 
-.mainTextContainer {
+.movieMatchForeignCard h2 {
   color: blue;
+}
+
+.logo {
+  width: 30px;
 }/*# sourceMappingURL=App.css.map */

@@ -5,9 +5,37 @@ body {
     background-color: $color-primary;
 }
 
-h1 {
+.logo {
+    margin: 0 25px; 
+} 
+
+nav {
+    background-color: $color-secondary;
+} 
+
+nav ul {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: left;
+    align-items: center;
+    width: 100%; 
+} 
+
+nav li {
+    padding: 10px 0; 
+} 
+
+h1, 
+.navFilmFactory {
     font-family: $font-primary;
-    font-size: 4rem;
+} 
+
+h1 {
+    font-size: 6rem;
+} 
+
+.navFilmFactory {
+    font-size: 1.8rem; 
 } 
 
 input {
@@ -50,8 +78,7 @@ span {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  
     gap: 2rem;  
     margin: 25px auto; 
-    padding: 0; 
-    
+    padding: 0;
 }
 
 .movieContainer li {
@@ -74,9 +101,6 @@ img {
 } 
 
 footer {
-    background-color: $color-secondary;
     padding: 5px; 
     margin-top: 25px; 
 } 
-
-
