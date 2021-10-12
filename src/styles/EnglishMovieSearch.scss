@@ -94,3 +94,49 @@ header nav ul li.englishMovieSearchContainer{
         }       //FIX THIS INCONSISTENCY
     }       
 }
+
+
+@media (max-width: 940px) {
+    
+}
+
+@media (max-width: 768px) {
+    header{
+        nav{
+            ul.navigationContainer {
+                li.englishMovieSearchContainer{
+                    ul.dropdownListUl{
+                        li{
+                            padding-left: 100px;
+                        }
+                        .searchBarMovie{
+                            padding:0 0 0 25px;
+                            .searchBarCardInformation{
+                
+                                h2{
+                                    //RESTYLE THIS
+                                }
+                                
+                                p{
+                                    
+                                    //RESTYLE THIS
+                                }
+                            }
+                            .searchBarImageContainer{
+                                img{
+                                }
+                            }
+                        }
+                        .searchBarMovie:hover,
+                        .searchBarMovie:focus{
+                        }
+                    }
+                }
+            }   
+        }
+    }
+}
+
+@media (max-width: 480px) {
+   
+}

@@ -44,3 +44,45 @@ header{
        padding:0; 
     }
 }
+
+
+@media (max-width: 940px) {
+    
+}
+
+@media (max-width: 768px) {
+    header{
+        nav{
+            ul.navigationContainer {
+                display: flex; 
+                flex-direction: column;
+                justify-content: center;
+
+                .logoContainer {
+                    position: absolute;
+                    top: 45px;
+                    left:0;
+    
+                    .logo{
+                    }
+                } 
+
+                li.navFilmFactory{
+                    width:100%;
+                    padding:0;
+                    margin:0 auto;
+                    text-align: center;
+                }
+                li.englishMovieSearchContainer{
+                    width:100%;
+                    padding-right:25px;
+                    padding-left:85px;
+                }
+            }   
+        }
+    }
+}
+
+@media (max-width: 480px) {
+   
+}
