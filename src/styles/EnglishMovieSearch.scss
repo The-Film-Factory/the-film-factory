@@ -1,0 +1,96 @@
+//============================================
+//THIS is focusing on the search bar and the dropdowns, the classes are being assigned in the ""EnglishMovieSearch.js"" component
+//============================================
+
+
+header nav ul li.englishMovieSearchContainer{
+    .dropdownListForm{
+        margin:0;
+        padding:0;
+        width:100%;
+
+        label{
+            display:none;
+        }
+
+        input{
+            display: block; 
+            width: 100%; 
+            height:55px;
+            margin: 0;
+            padding: 0 10px; 
+        }
+    }
+
+    ul.dropdownListUl{
+        display:flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100px;
+        left:0px;
+        width:100%;
+
+        li{
+            position: relative;
+            padding-left: 0;
+            // background-color: $color-tertiary;
+            background-color: black;
+            padding: 0px; 
+            margin:0;
+            padding-left: 325px;
+
+            p{
+                color:white;
+                padding:5px 0 5px 0;
+                margin:0;
+
+            }
+        }
+        li:hover{
+            background-color: blue;
+        }        //FIX THIS INCONSISTENCY
+
+        // THIS IS THE SPECIFIC STYLING FOR THE BANNER MOVIE
+
+        .searchBarMovie{
+            padding:0 0 0 25px;
+            margin:0;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            align-items: flex-start;
+            width:100%;
+            height:150px;
+            position: absolute;
+            background-color: black;
+
+            .searchBarCardInformation{
+                color:white;
+                padding-left:50px;
+                display:flex;
+                flex-direction: row;
+                margin-top:10px;
+
+                h2{
+                    margin-top:10px;
+                }
+                
+                p{
+                    padding-left:20px;
+                }
+            }
+            .searchBarImageContainer{
+                height:150px;
+                img{
+                    height:100%;
+                    padding:0;
+                    margin:0;
+                }
+            }
+        }
+        .searchBarMovie:hover,
+        .searchBarMovie:focus{
+            background-color: red;
+        }       //FIX THIS INCONSISTENCY
+    }       
+}
