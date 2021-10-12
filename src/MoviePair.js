@@ -52,9 +52,9 @@ const MoviePair = ({match}) => {
     
       return(
         <>
-         <div><h1>hello</h1></div>
+         
          {matchData.length > 0 ?
-         <> 
+         <div className="pairContainer"> 
             <MovieCard
                 key={matchData[0].id}
                 movieKey={matchData[0].id}
@@ -64,6 +64,12 @@ const MoviePair = ({match}) => {
                 movieTitle={matchData[0].title}
                 moviePoster={matchData[0].poster_path}
             /> 
+            <div className="likeThis">
+              <p>If you like this</p>
+              <p className="arrow">↩</p>
+              <p>You might like this</p>
+              <p className="arrow">↪</p>
+            </div>
             <MovieCard
                 key={matchData[1].id}
                 movieKey={matchData[1].id}
@@ -73,7 +79,7 @@ const MoviePair = ({match}) => {
                 movieTitle={matchData[1].title}
                 moviePoster={matchData[1].poster_path}
             />
-          </>
+          </div>
           : null}
     
         </>

@@ -26,7 +26,7 @@ const DisplayList = () => {
   return (
     
     
-    <div>
+    <div className="displayPairs">
       { matchList ?
       
       
