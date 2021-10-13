@@ -6,12 +6,13 @@ import MovieMatch from "./MovieMatch";
 import DisplayList from "./DisplayList";
 
 function App() {
+
   return (
     <Router>
       <div className="App">
         <Route path="/">
           <header>
-            <Navigation />
+            <Navigation/>
           </header>
         </Route>
 
