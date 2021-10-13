@@ -1,6 +1,7 @@
 import { handleDisplayData } from "./ourDbFunctions";
 import { useState, useEffect } from "react";
 import MoviePair from "./MoviePair";
+import { Link } from "react-router-dom";
 
 const DisplayList = () => {
   const [matchList, setMatchList] = useState([]);

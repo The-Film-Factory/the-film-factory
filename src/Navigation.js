@@ -7,16 +7,16 @@ const Navigation = () => {
     <>
       <nav>
         <ul className="navigationContainer">
-            <Link exact to={`/`}>
-                <li className="logoContainer">
-                    <img className="logo" src={logo} alt="film factory initial" />
-                </li>
-            </Link>
-            <li className='navFilmFactory'>The Film Factory</li>
-            <EnglishMovieSearch />
+          <Link to={`/`}>
+            <li className="logoContainer">
+              <img className="logo" src={logo} alt="film factory initial" />
+            </li>
+          </Link>
+          <li className="navFilmFactory">The Film Factory</li>
+          <EnglishMovieSearch />
         </ul>
       </nav>
-      <h1>The Film Factory</h1>
+      {/* <h1>The Film Factory</h1> */}
     </>
   );
 };

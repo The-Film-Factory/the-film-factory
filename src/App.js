@@ -4,11 +4,8 @@ import ForeignMovie from "./ForeignMovie.js";
 import Navigation from "./Navigation.js";
 import MovieMatch from "./MovieMatch";
 import DisplayList from "./DisplayList";
-import { useState } from "react";
 
 function App() {
-  const [watchList, setWatchList] = useState(false);
-
   return (
     <Router>
       <div className="App">
@@ -22,15 +19,16 @@ function App() {
           <Route path="/movie/:movieID">
             <ForeignMovie />
           </Route>
+
           <Route path="/movie/:movieID/:foreignMovieID">
             <MovieMatch />
           </Route>
-          <button onClick={() => setWatchList(!watchList)}>Watchlist</button>
-          {watchList ? (
-            <Link to="/watchlist">
-              <DisplayList />
-            </Link>
-          ) : null}
+
+          <Link to="/watchlist">WatchList</Link>
+
+          <Route path="/watchlist">
+            <DisplayList />
+          </Route>
         </main>
 
         <footer>
