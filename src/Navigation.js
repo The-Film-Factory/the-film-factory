@@ -1,5 +1,5 @@
 import EnglishMovieSearch from "./EnglishMovieSearch.js";
-import logo from "./assets/ff.svg";
+import logo from "./assets/logo512.png";
 import { Link } from "react-router-dom";
 import {useState} from "react";
 
@@ -28,7 +28,7 @@ const Navigation = () => {
                 }}    
             >
                 <li className="logoContainer">
-                    <img className="logo" src={logo} alt="film factory initial" />
+                    <img className="logo" src={logo} alt="The Film Factory logo" />
                 </li>
             </Link>
             <li className='navFilmFactory'>The Film Factory</li>

@@ -22,19 +22,18 @@ header{
             }
 
             .logoContainer {
-                width:100px;
-                padding-left: 30px;
+                width:90px;
+                padding: 0 15px;
 
                 .logo{
                     object-fit:contain;
-                    width:30px;
                 }
             } 
             li.navFilmFactory{
                 width:250px;
             }
             li.englishMovieSearchContainer{
-                width: calc(100% - 280px);
+                width: calc(100% - 340px);
                 padding-right:30px;
             }
         } 

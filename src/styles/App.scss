@@ -6,4 +6,10 @@
 @import './EnglishMovieSearch.scss';
 @import './MoviePair';
 
-
+// move this later!! 
+.scrollContainer ul {
+    border: 2px solid black; 
+    display: flex; 
+    overflow-x: auto;
+    overflow-y: hidden; 
+} 
