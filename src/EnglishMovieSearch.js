@@ -1,18 +1,23 @@
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import MovieCard from "./MovieCard";
 
 //First call to get userInput in English name and make the call to get user search
 //once we received usersearch, we stored in moviePicked state
-const EnglishMovieSearch = () => {
-  const [searchValue, setSearchValue] = useState("");
-  // create state to store selection
-  const [moviesPicked, setMoviesPicked] = useState([]);
-  const [movieResults, setMovieResults] = useState([]);
-  const [currentMovie, setCurrentMovie] = useState("");
-  const [dropdownVisiblity, setDropdownVisibility] = useState(true);
-  let history = useHistory("");
+const EnglishMovieSearch = (props) => {
+    
+    //These props are passed in to control the rendering conditions of the main dropdowns
+    //======================================================
+    const { toggleBanner, bannerMovieVisibile } = props;
+
+    const [searchValue, setSearchValue] = useState("");
+    // create state to store selection
+    const [moviesPicked, setMoviesPicked] = useState([]);
+    const [movieResults, setMovieResults] = useState([]);
+    const [currentMovie, setCurrentMovie] = useState("");
+    const [dropdownVisiblity, setDropdownVisibility] = useState(true);
+    let history = useHistory("");
 
   //useeffect instead of a function
   useEffect(
@@ -38,12 +43,16 @@ const EnglishMovieSearch = () => {
   //unaltered, except I removed the makeQuery call
   const getSearch = (query) => {
     if (query !== " ") {
-      setSearchValue(query);
-      const newObj = movieResults;
-      setMoviesPicked(newObj);
-      setDropdownVisibility(true);
+        const newObj = movieResults;
+
+        setSearchValue(query);
+        setMoviesPicked(newObj);
+        //toggles the visibility of the overal nav and main movie so they for sure appear
+        toggleBanner(true);
+        //Toggles the visilibility of the dropdown to ensure it shows up when typing
+        setDropdownVisibility(true);
     } else {
-      console.log("no results");
+    //   console.log("no results");
     }
   };
   
@@ -56,6 +65,7 @@ const EnglishMovieSearch = () => {
         setDropdownVisibility(false);
         setCurrentMovie(moviesPicked[0]);
         history.push(`/movie/${moviesPicked[0].id}`);
+        setSearchValue("");
     }
   };
 
@@ -78,56 +88,64 @@ const EnglishMovieSearch = () => {
       {/* ...if movie is picked, go to unique id link from the Movie component */}
       <ul className="dropdownListUl">
         {
-            dropdownVisiblity === true
-            ? 
-                (searchValue === ""
-                ?
-                null
-                : 
-                    (moviesPicked.length === 0 && searchValue !== '')
-                    ? 
-                    <li>
-                        <p>Movie not found. Please try again.</p>
-                    </li>
-                    :
-                    (
-                        moviesPicked.slice(0, 5).map((movie) => {
-                            return (
-                            <li
-                                key={movie.id}
-                                className="searchResultLists"
-                                onClick={function () {
-                                setCurrentMovie(movie);
-                                setDropdownVisibility(false);
-                                }}
-                            >
-                                <Link to={`/movie/${movie.id}`}>
-                                    <p>{movie.original_title}</p>
-                                </Link>
-                            </li>
-                            );
-                        })
-                    ) 
-                )
-            : 
+            bannerMovieVisibile !== true
+            ?
+            null
+            :
             (
-                <Link to={`/movie/${currentMovie.id}`}>
-                    <MovieCard
-                        //============================================================
-                        // These styles are being pushed to the EnglishMovieSearch.scss partial, to specifically style the banner. 
-                        //============================================================ 
-                        cardClass={"searchBarMovie"}
-                        imgClass={"searchBarImageContainer"}
-                        cardInformation={"searchBarCardInformation"}
-                        key={currentMovie.id}
-                        movieTitle={currentMovie.original_title}
-                        movieKey={currentMovie.id}
-                        movieOgLang={currentMovie.original_language}
-                        moviePoster={currentMovie.poster_path}
+                dropdownVisiblity === true
+                ? 
+                    (searchValue === ""
+                    ?
+                    null
+                    : 
+                        (moviesPicked.length === 0 && searchValue !== '')
+                        ? 
+                        <li>
+                            <p>Movie not found. Please try again.</p>
+                        </li>
+                        :
+                        (
+                            moviesPicked.slice(0, 5).map((movie) => {
+                                return (
+                                <li
+                                    key={movie.id}
+                                    className="searchResultLists"
+                                    onClick={function () {
+                                        // these make things stop rendering once we make a query
+                                    setCurrentMovie(movie);
+                                    setDropdownVisibility(false);
+                                    setSearchValue("");
+                                    }}
+                                >
+                                    <Link to={`/movie/${movie.id}`}>
+                                        <p>{movie.original_title}</p>
+                                    </Link>
+                                </li>
+                                );
+                            })
+                        ) 
+                    )
+                : 
+                (
+                    <Link to={`/movie/${currentMovie.id}`}>
+                        <MovieCard
+                            //============================================================
+                            // These styles are being pushed to the EnglishMovieSearch.scss partial, to specifically style the banner. 
+                            //============================================================ 
+                            cardClass={"searchBarMovie"}
+                            imgClass={"searchBarImageContainer"}
+                            cardInformation={"searchBarCardInformation"}
+                            key={currentMovie.id}
+                            movieTitle={currentMovie.original_title}
+                            movieKey={currentMovie.id}
+                            movieOgLang={currentMovie.original_language}
+                            moviePoster={currentMovie.poster_path}
 
-                    //props that hold the moviecard information
-                    />
-                </Link>
+                        //props that hold the moviecard information
+                        />
+                    </Link>
+                )
             )
         }
       </ul>
