@@ -74,7 +74,7 @@ const EnglishMovieSearch = (props) => {
         setSearchValue("");
     }
   };
-
+  console.log(currentMovie);
   return (
     <>
     <li className="englishMovieSearchContainer">
@@ -156,7 +156,12 @@ const EnglishMovieSearch = (props) => {
                             movieTitle={currentMovie.original_title}
                             movieKey={currentMovie.id}
                             movieOgLang={currentMovie.original_language}
+                            showOgLang={false}
                             moviePoster={currentMovie.poster_path}
+                            movieReleaseDate={currentMovie.release_date}
+                            showMovieReleaseDate={true}
+                            movieDescription={currentMovie.overview}
+                            showMovieDescription={true}
 
                         //props that hold the moviecard information
                         />
