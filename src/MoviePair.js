@@ -23,30 +23,38 @@ const MoviePair = ({ match }) => {
 
     // create empty array and fill array with movies (promises)
     let newArray = [];
+   
+      
+    newArray.push(apiCallID(`https://api.themoviedb.org/3/movie/${match.englishMovie}`));
+    newArray.push(apiCallID(`https://api.themoviedb.org/3/movie/${match.foreignMovie}`));
+      
+     
+        // callback to run when all promises are fulfilled (once movies have returned)
+         Promise.all(newArray).then((allResponses) => {
+          const promiseArray = [];
+          allResponses.forEach((response) => {
+            
+            promiseArray.push(response.data);
+           
+          });
+          
+    
+          setMatchData(promiseArray)
+         })
+    
+          
+      }, [match]);
+    
+      
 
-    newArray.push(
-      apiCallID(`https://api.themoviedb.org/3/movie/${match.englishMovie}`)
-    );
-    newArray.push(
-      apiCallID(`https://api.themoviedb.org/3/movie/${match.foreignMovie}`)
-    );
-
-    // callback to run when all promises are fulfilled (once movies have returned)
-    Promise.all(newArray).then((allResponses) => {
-      const promiseArray = [];
-      allResponses.forEach((response) => {
-        promiseArray.push(response.data);
-      });
-
-      setMatchData(promiseArray);
-    });
-  }, [match]);
+    
 
   return (
     <>
       {matchData.length > 0 ? (
         <Link to="/watchlist">
           <div className="pairContainer">
+
             <MovieCard
               key={matchData[0].id}
               movieKey={matchData[0].id}
