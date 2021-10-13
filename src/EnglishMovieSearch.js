@@ -48,6 +48,10 @@ const EnglishMovieSearch = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // do nothing (return nothing) if empty string on submit or if no result returns on submit 
+    if (searchValue === '' || moviesPicked.length === 0) {
+      return; 
+    }
     setDropdownVisibility(false);
     setCurrentMovie(moviesPicked[0]);
   };
