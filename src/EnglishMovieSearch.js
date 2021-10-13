@@ -19,6 +19,8 @@ const EnglishMovieSearch = (props) => {
     const [dropdownVisiblity, setDropdownVisibility] = useState(true);
     let history = useHistory("");
 
+    const [errorMessage, setErrorMessage] = useState(false); 
+
   //useeffect instead of a function
   useEffect(
     function () {
@@ -34,6 +36,10 @@ const EnglishMovieSearch = (props) => {
           },
         }).then((res) => {
           setMovieResults(res.data.results);
+        })
+        // axios to throw error and run .catch() instead of .then ()
+        .catch((error) => {
+          setErrorMessage(error);
         });
       }
     },
@@ -70,6 +76,7 @@ const EnglishMovieSearch = (props) => {
   };
 
   return (
+    <>
     <li className="englishMovieSearchContainer">
       {/* on form submit, the selected movie goes to state...*/}
       <form 
@@ -99,13 +106,21 @@ const EnglishMovieSearch = (props) => {
                     ?
                     null
                     : 
+                      // display error message when api fails/is down 
+                      errorMessage
+                      ?
+                      <li>
+                        <p>The page is temporarily unavailable due to scheduled maintenance. Please check back later.</p>
+                      </li>
+                      :
+                        // display error message when no results return based on user input 
                         (moviesPicked.length === 0 && searchValue !== '')
                         ? 
                         <li>
-                            <p>Movie not found. Please try again.</p>
+                            <p>No results found. Please try a different search.</p>
                         </li>
                         :
-                        (
+                          (
                             moviesPicked.slice(0, 5).map((movie) => {
                                 return (
                                 <li
@@ -124,7 +139,7 @@ const EnglishMovieSearch = (props) => {
                                 </li>
                                 );
                             })
-                        ) 
+                          ) 
                     )
                 : 
                 (
@@ -150,6 +165,7 @@ const EnglishMovieSearch = (props) => {
         }
       </ul>
     </li>
+    </>
   );
 };
 

@@ -14,7 +14,7 @@ const MovieCard = (props) => {
   /////////////////////////////////////////////////// to do: change null line 21 to placeholder image
 
   return (
-    <li key={movieKey} className="sliderimg"
+    <li key={movieKey} 
         className={cardClass}>
       <div className={cardInformation}>
         <h2>{movieTitle}</h2>
