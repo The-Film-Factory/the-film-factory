@@ -35,7 +35,7 @@ const Navigation = () => {
             <EnglishMovieSearch toggleBanner={toggleBannerVisibility} bannerMovieVisibile={bannerMovieVisibile}/>
         </ul>
       </nav>
-      <h1>The Film Factory</h1>
+      {/* <h1>The Film Factory</h1> */}
     </>
   );
 };

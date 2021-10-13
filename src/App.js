@@ -1,5 +1,5 @@
 import "./styles/App.scss";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import ForeignMovie from "./ForeignMovie.js";
 import Navigation from "./Navigation.js";
 import MovieMatch from "./MovieMatch";
@@ -20,10 +20,16 @@ function App() {
           <Route path="/movie/:movieID">
             <ForeignMovie />
           </Route>
+
           <Route path="/movie/:movieID/:foreignMovieID">
             <MovieMatch />
           </Route>
-          <DisplayList />
+
+          <Link to="/watchlist">WatchList</Link>
+
+          <Route path="/watchlist">
+            <DisplayList />
+          </Route>
         </main>
 
         <footer>
