@@ -55,7 +55,7 @@ const EnglishMovieSearch = () => {
     }else{
         setDropdownVisibility(false);
         setCurrentMovie(moviesPicked[0]);
-        // history.push(`/movie/${moviesPicked[0].id}`);
+        history.push(`/movie/${moviesPicked[0].id}`);
     }
   };
 
