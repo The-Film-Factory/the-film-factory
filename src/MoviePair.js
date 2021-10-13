@@ -42,7 +42,7 @@ const MoviePair = ({match}) => {
             promiseArray.push(response.data);
            
           });
-          console.log(promiseArray);
+          
     
           setMatchData(promiseArray)
          })

@@ -7,7 +7,9 @@ import MoviePair from './MoviePair';
 const DisplayList = () => {
   const [matchList, setMatchList] = useState([]);
   const [pageNum, setPageNum] = useState(0)
-  const [nextPage, setNextPage] = useState([])
+  const [paginatedMatchList, setPaginatedMatchList] = useState([])
+ 
+  /// make call to the DB for the public matches, set them to state
   useEffect(() => {
     handleDisplayData((snapshot) => {
       const data = snapshot.val();
@@ -23,53 +25,88 @@ const DisplayList = () => {
     });
   }, []);
 
-  const handleClick = () => {
-    
-    
-    setPageNum(pageNum + 1)
-    
-    const sliceStart = pageNum + 10;
-    const sliceEnd = sliceStart + 10;
-
-    setNextPage(matchList.slice(sliceStart, sliceEnd));
   
+  /// when the results are in from the DB, cut them into
+  // pages of ten and put that cut-up array into state
+  useEffect(() => {
+    const numOfPages = matchList.length / 10;
+    const newArray = []
+    for(let i = 0; i < numOfPages; i++) {
+      if(i === 0) {
+        newArray.push(matchList.slice(0, 10))
+      } else {
+        const begin = i * 10;
+        const end = (i * 10) + 10;
+        newArray.push(matchList.slice(begin, end))
+      }
+      
+    };
+    
+    setPaginatedMatchList(newArray);
+
+  }, [matchList])
+
+
+
+  /// increase page number
+  const nextPageClick = () => {
+    if(pageNum === paginatedMatchList.length -1) {
+      return
+    }
+    setPageNum(pageNum + 1);
+  }
+      
+  // decrease page number
+  const previousPageClick = () => {
+    if(pageNum <= 0) {
+      return
+    }
+    setPageNum(pageNum -1);
   }
 
+
+
+  /// map over the array index according to the page number
   return (
     
     
     <div className="displayPairs">
-      { matchList.length > 0 && pageNum === 0 ?
-      
-        matchList.slice(0, 10).map((match) => {
-          return(
+    
+      { paginatedMatchList[0] ? 
+
+        paginatedMatchList[pageNum].map((match) => {
+          return( 
             <MoviePair key={match.id} match={match} />
           )
         })
 
-        : <h3>API is loading!</h3>
-      
+        : <h3>Fetching Public Matches from the Database</h3>
       }
-
-
-      
+         
+      <button onClick={nextPageClick}>Next page</button>
+      <button onClick={previousPageClick} >Previous page</button>
+      <p>{pageNum + 1} of {paginatedMatchList.length}</p>  
         
-      <button onClick={handleClick}>next page</button> 
-        
-      { pageNum > 0 ? 
-
-        nextPage.map((match) => {
-          return(
-            <MoviePair key={match.id} match={match} />
-          )
-        })
-
-        : <h3>API is loading!</h3>
-      
-      }
     </div>
   );
 };
+      
+
+
 
 export default DisplayList;
+
+    
+    
+    
+    
+    
+
+        
+      
+    
+
+
+      
+        
       
