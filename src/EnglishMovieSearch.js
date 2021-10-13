@@ -73,6 +73,12 @@ const EnglishMovieSearch = () => {
       <ul className="dropdownListUl">
         {dropdownVisiblity 
         ? 
+          (moviesPicked.length === 0 && searchValue !== '')
+          ? 
+          <li>
+            <p>Movie not found. Please try again.</p>
+          </li>
+          :
             (
                 moviesPicked.slice(0, 5).map((movie) => {
                     return (
@@ -80,8 +86,8 @@ const EnglishMovieSearch = () => {
                         key={movie.id}
                         className="searchResultLists"
                         onClick={function () {
-                            setCurrentMovie(movie);
-                            setDropdownVisibility(false);
+                        setCurrentMovie(movie);
+                        setDropdownVisibility(false);
                         }}
                     >
                         <Link to={`/movie/${movie.id}`}>
