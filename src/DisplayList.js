@@ -1,15 +1,15 @@
 import { handleDisplayData } from "./ourDbFunctions";
 import { useState, useEffect } from "react";
-import axios from "axios";
-import MoviePair from './MoviePair';
-
+import MoviePair from "./MoviePair";
 
 const DisplayList = () => {
   const [matchList, setMatchList] = useState([]);
+
   const [pageNum, setPageNum] = useState(0)
   const [paginatedMatchList, setPaginatedMatchList] = useState([])
  
   /// make call to the DB for the public matches, set them to state
+
   useEffect(() => {
     handleDisplayData((snapshot) => {
       const data = snapshot.val();
@@ -67,10 +67,10 @@ const DisplayList = () => {
 
 
   /// map over the array index according to the page number
+
   return (
-    
-    
     <div className="displayPairs">
+
     
       { paginatedMatchList[0] ? 
 
@@ -87,6 +87,7 @@ const DisplayList = () => {
       <button onClick={previousPageClick} >Previous page</button>
       <p>{pageNum + 1} of {paginatedMatchList.length}</p>  
         
+
     </div>
   );
 };
