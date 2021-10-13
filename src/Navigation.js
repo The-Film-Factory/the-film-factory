@@ -6,17 +6,17 @@ const Navigation = () => {
   return (
     <>
       <nav>
-        <ul>
-          <li>
+        <ul className="navigationContainer">
             <Link exact to={`/`}>
-              <img className="logo" src={logo} alt="film factory initial" />
+                <li className="logoContainer">
+                    <img className="logo" src={logo} alt="film factory initial" />
+                </li>
             </Link>
-          </li>
-          <li className='navFilmFactory'>The Film Factory</li>
+            <li className='navFilmFactory'>The Film Factory</li>
+            <EnglishMovieSearch />
         </ul>
       </nav>
       <h1>The Film Factory</h1>
-      <EnglishMovieSearch />
     </>
   );
 };

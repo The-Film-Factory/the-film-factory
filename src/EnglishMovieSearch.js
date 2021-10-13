@@ -53,56 +53,67 @@ const EnglishMovieSearch = () => {
   };
 
   return (
-    <>
+    <li className="englishMovieSearchContainer">
       {/* on form submit, the selected movie goes to state...*/}
-      <form onSubmit={handleSubmit}>
+      <form 
+        className="dropdownListForm" 
+        onSubmit={handleSubmit}>
         {/* nest input inside label */}
         <label>
-          Search for a movie:
-          <input
+            Search for a movie:
+        </label>
+        <input
             type="text"
             value={searchValue}
             onChange={(e) => getSearch(e.target.value)}
-          />
-        </label>
+        />
       </form>
 
       {/* ...if movie is picked, go to unique id link from the Movie component */}
-      <ul>
-        {dropdownVisiblity ? (
-          moviesPicked.slice(0, 5).map((movie) => {
-            return (
-              <li
-                key={movie.id}
-                className="searchResultLists"
-                onClick={function () {
-                  setCurrentMovie(movie);
-                  setDropdownVisibility(false);
-                }}
-              >
-                <Link to={`/movie/${movie.id}`}>
-                  <p>{movie.original_title}</p>
+      <ul className="dropdownListUl">
+        {dropdownVisiblity 
+        ? 
+            (
+                moviesPicked.slice(0, 5).map((movie) => {
+                    return (
+                    <li
+                        key={movie.id}
+                        className="searchResultLists"
+                        onClick={function () {
+                            setCurrentMovie(movie);
+                            setDropdownVisibility(false);
+                        }}
+                    >
+                        <Link to={`/movie/${movie.id}`}>
+                            <p>{movie.original_title}</p>
+                        </Link>
+                    </li>
+                    );
+                })
+            ) 
+        : 
+            (
+                <Link to={`/movie/${currentMovie.id}`}>
+                    <MovieCard
+                        //============================================================
+                        // These styles are being pushed to the EnglishMovieSearch.scss partial, to specifically style the banner. 
+                        //============================================================ 
+                        cardClass={"searchBarMovie"}
+                        imgClass={"searchBarImageContainer"}
+                        cardInformation={"searchBarCardInformation"}
+                        key={currentMovie.id}
+                        movieTitle={currentMovie.original_title}
+                        movieKey={currentMovie.id}
+                        movieOgLang={currentMovie.original_language}
+                        moviePoster={currentMovie.poster_path}
+
+                    //props that hold the moviecard information
+                    />
                 </Link>
-              </li>
-            );
-          })
-        ) : (
-          <Link to={`/movie/${currentMovie.id}`}>
-            <MovieCard
-              //change these classes to style for this card specifically
-              key={currentMovie.id}
-              cardClass={"mainTextContainer"}
-              imgClass={"imgContainer"}
-              movieTitle={currentMovie.original_title}
-              movieKey={currentMovie.id}
-              movieOgLang={currentMovie.original_language}
-              moviePoster={currentMovie.poster_path}
-              //props that hold the moviecard information
-            />
-          </Link>
-        )}
+            )
+        }
       </ul>
-    </>
+    </li>
   );
 };
 

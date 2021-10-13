@@ -5,26 +5,6 @@ body {
     background-color: $color-primary;
 }
 
-.logo {
-    margin: 0 25px; 
-} 
-
-nav {
-    background-color: $color-secondary;
-} 
-
-nav ul {
-    display: flex; 
-    flex-direction: row; 
-    justify-content: left;
-    align-items: center;
-    width: 100%; 
-} 
-
-nav li {
-    padding: 10px 0; 
-} 
-
 h1, 
 .navFilmFactory {
     font-family: $font-primary;
@@ -36,13 +16,6 @@ h1 {
 
 .navFilmFactory {
     font-size: 1.8rem; 
-} 
-
-input {
-    display: block; 
-    width: 30%; 
-    margin: 0 auto;
-    padding: 5px; 
 } 
 
 ul {
@@ -60,12 +33,11 @@ li {
     padding: 25px; 
 } 
 
+// a{
+//     pointer-events: none;
+// }
+
 // english film  
-li.searchResultLists{
-    padding: 0;
-    background-color: $color-tertiary;
-    padding: 5px; 
-}
 
 span {
     font-weight: bold;
@@ -104,3 +76,4 @@ footer {
     padding: 5px; 
     margin-top: 25px; 
 } 
+

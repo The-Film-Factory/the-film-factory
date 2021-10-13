@@ -8,13 +8,15 @@ const MovieCard = (props) => {
     movieOgLang,
     movieTitle,
     moviePoster,
+    cardInformation,
   } = props;
 
   /////////////////////////////////////////////////// to do: change null line 21 to placeholder image
 
   return (
-    <li key={movieKey}>
-      <div className={cardClass}>
+    <li key={movieKey}
+        className={cardClass}>
+      <div className={cardInformation}>
         <h2>{movieTitle}</h2>
         <p>Language: {movieOgLang}</p>
       </div>
