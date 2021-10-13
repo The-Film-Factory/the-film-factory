@@ -9,10 +9,6 @@ header nav ul li.englishMovieSearchContainer{
         padding:0;
         width:100%;
 
-        label{
-            display:none;
-        }
-
         input{
             display: block; 
             width: 100%; 
@@ -34,23 +30,27 @@ header nav ul li.englishMovieSearchContainer{
             position: relative;
             padding-left: 0;
             // background-color: $color-tertiary;
-            background-color: black;
+            background-color: black; 
             padding: 0px; 
             margin:0;
             padding-left: 325px;
 
             p{
                 color:white;
-                padding:5px 0 5px 0;
+                padding:5px 0;
                 margin:0;
 
             }
         }
-        li:hover{
-            background-color: blue;
-        }        //FIX THIS INCONSISTENCY
-
         // THIS IS THE SPECIFIC STYLING FOR THE BANNER MOVIE
+        li:hover{
+            background-color: rgb(194, 194, 194);
+
+            p {
+                color: black; 
+            } 
+        } 
+
 
         .searchBarMovie{
             padding:0 0 0 25px;
@@ -68,16 +68,13 @@ header nav ul li.englishMovieSearchContainer{
                 color:white;
                 padding-left:50px;
                 display:flex;
-                flex-direction: row;
+                flex-direction: column;
                 margin-top:10px;
 
                 h2{
                     margin-top:10px;
                 }
                 
-                p{
-                    padding-left:20px;
-                }
             }
             .searchBarImageContainer{
                 height:150px;
@@ -90,8 +87,14 @@ header nav ul li.englishMovieSearchContainer{
         }
         .searchBarMovie:hover,
         .searchBarMovie:focus{
-            background-color: red;
-        }       //FIX THIS INCONSISTENCY
+            filter: drop-shadow(0 0 5px black);
+            background-color: black;
+            .searchBarCardInformation{
+                p {
+                    color: white; 
+                }
+            }
+        }    
     }       
 }
 
@@ -138,5 +141,5 @@ header nav ul li.englishMovieSearchContainer{
 }
 
 @media (max-width: 480px) {
-   
+
 }

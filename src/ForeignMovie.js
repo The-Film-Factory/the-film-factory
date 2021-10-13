@@ -30,7 +30,7 @@ function ForeignMovie() {
     // create empty array and fill array with movies (promises)
     const newArray = [];
 
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 15; i++) {
       newArray.push(getSimilarMovies(i));
     }
 
@@ -61,26 +61,28 @@ function ForeignMovie() {
         If you liked <span>klsjflds</span>, you may like...
       </p>
 
-      <ul>
-        {movie.map((currentMovie) => {
-          return (
-            <Link
-              to={`/movie/${movieID}/${currentMovie.id}`}
-              key={currentMovie.id}
-            >
-              <MovieCard
+      <div className='scrollContainer'>
+        <ul>
+          {movie.map((currentMovie) => {
+            return (
+              <Link
+                to={`/movie/${movieID}/${currentMovie.id}`}
                 key={currentMovie.id}
-                movieKey={currentMovie.id}
-                cardClass={"textContainer"}
-                imgClass={"imgContainer"}
-                movieOgLang={currentMovie.original_language}
-                movieTitle={currentMovie.title}
-                moviePoster={currentMovie.poster_path}
-              />
-            </Link>
-          );
-        })}
-      </ul>
+              >
+                <MovieCard
+                  key={currentMovie.id}
+                  movieKey={currentMovie.id}
+                  cardClass={"textContainer"}
+                  imgClass={"imgContainer"}
+                  movieOgLang={currentMovie.original_language}
+                  movieTitle={currentMovie.title}
+                  moviePoster={currentMovie.poster_path}
+                />
+              </Link>
+            );
+          })}
+        </ul>
+      </div>
     </section>
   );
 }

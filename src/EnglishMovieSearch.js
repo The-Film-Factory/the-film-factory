@@ -82,10 +82,11 @@ const EnglishMovieSearch = (props) => {
       <form 
         className="dropdownListForm" 
         onSubmit={handleSubmit}>
-        <label>
+        <label className='sr-only'>
             Search for a movie:
         </label>
         <input
+            placeholder='Search for a movie...'
             type="text"
             value={searchValue}
             onChange={(e) => getSearch(e.target.value)}
