@@ -48,6 +48,10 @@ const EnglishMovieSearch = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // do nothing (return nothing) if empty string on submit or if no result returns on submit 
+    if (searchValue === '' || moviesPicked.length === 0) {
+      return; 
+    }
     setDropdownVisibility(false);
     setCurrentMovie(moviesPicked[0]);
   };
@@ -73,6 +77,12 @@ const EnglishMovieSearch = () => {
       <ul className="dropdownListUl">
         {dropdownVisiblity 
         ? 
+          (moviesPicked.length === 0 && searchValue !== '')
+          ? 
+          <li>
+            <p>Movie not found. Please try again.</p>
+          </li>
+          :
             (
                 moviesPicked.slice(0, 5).map((movie) => {
                     return (
@@ -80,8 +90,8 @@ const EnglishMovieSearch = () => {
                         key={movie.id}
                         className="searchResultLists"
                         onClick={function () {
-                            setCurrentMovie(movie);
-                            setDropdownVisibility(false);
+                        setCurrentMovie(movie);
+                        setDropdownVisibility(false);
                         }}
                     >
                         <Link to={`/movie/${movie.id}`}>
