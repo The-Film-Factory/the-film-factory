@@ -1,6 +1,6 @@
-import { useEffect, useState, useHistory } from "react";
+import { useEffect, useState} from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import MovieCard from "./MovieCard";
 
 //First call to get userInput in English name and make the call to get user search
@@ -12,7 +12,7 @@ const EnglishMovieSearch = () => {
   const [movieResults, setMovieResults] = useState([]);
   const [currentMovie, setCurrentMovie] = useState("");
   const [dropdownVisiblity, setDropdownVisibility] = useState(true);
-//   const history = useHistory();
+  let history = useHistory("");
 
   //useeffect instead of a function
   useEffect(
@@ -46,16 +46,17 @@ const EnglishMovieSearch = () => {
       console.log("no results");
     }
   };
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     // do nothing (return nothing) if empty string on submit or if no result returns on submit 
     if (searchValue === '' || moviesPicked.length === 0) {
       return; 
+    }else{
+        setDropdownVisibility(false);
+        setCurrentMovie(moviesPicked[0]);
+        // history.push(`/movie/${moviesPicked[0].id}`);
     }
-    setDropdownVisibility(false);
-    setCurrentMovie(moviesPicked[0]);
-    // history.push(`/movie/${moviesPicked[0].id}`);
   };
 
   return (
@@ -64,7 +65,6 @@ const EnglishMovieSearch = () => {
       <form 
         className="dropdownListForm" 
         onSubmit={handleSubmit}>
-        {/* nest input inside label */}
         <label>
             Search for a movie:
         </label>
