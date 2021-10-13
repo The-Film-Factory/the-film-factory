@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useHistory } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import MovieCard from "./MovieCard";
@@ -12,6 +12,7 @@ const EnglishMovieSearch = () => {
   const [movieResults, setMovieResults] = useState([]);
   const [currentMovie, setCurrentMovie] = useState("");
   const [dropdownVisiblity, setDropdownVisibility] = useState(true);
+//   const history = useHistory();
 
   //useeffect instead of a function
   useEffect(
@@ -54,6 +55,7 @@ const EnglishMovieSearch = () => {
     }
     setDropdownVisibility(false);
     setCurrentMovie(moviesPicked[0]);
+    // history.push(`/movie/${moviesPicked[0].id}`);
   };
 
   return (
@@ -75,33 +77,39 @@ const EnglishMovieSearch = () => {
 
       {/* ...if movie is picked, go to unique id link from the Movie component */}
       <ul className="dropdownListUl">
-        {dropdownVisiblity 
-        ? 
-          (moviesPicked.length === 0 && searchValue !== '')
-          ? 
-          <li>
-            <p>Movie not found. Please try again.</p>
-          </li>
-          :
-            (
-                moviesPicked.slice(0, 5).map((movie) => {
-                    return (
-                    <li
-                        key={movie.id}
-                        className="searchResultLists"
-                        onClick={function () {
-                        setCurrentMovie(movie);
-                        setDropdownVisibility(false);
-                        }}
-                    >
-                        <Link to={`/movie/${movie.id}`}>
-                            <p>{movie.original_title}</p>
-                        </Link>
+        {
+            dropdownVisiblity === true
+            ? 
+                (searchValue === ""
+                ?
+                null
+                : 
+                    (moviesPicked.length === 0 && searchValue !== '')
+                    ? 
+                    <li>
+                        <p>Movie not found. Please try again.</p>
                     </li>
-                    );
-                })
-            ) 
-        : 
+                    :
+                    (
+                        moviesPicked.slice(0, 5).map((movie) => {
+                            return (
+                            <li
+                                key={movie.id}
+                                className="searchResultLists"
+                                onClick={function () {
+                                setCurrentMovie(movie);
+                                setDropdownVisibility(false);
+                                }}
+                            >
+                                <Link to={`/movie/${movie.id}`}>
+                                    <p>{movie.original_title}</p>
+                                </Link>
+                            </li>
+                            );
+                        })
+                    ) 
+                )
+            : 
             (
                 <Link to={`/movie/${currentMovie.id}`}>
                     <MovieCard
