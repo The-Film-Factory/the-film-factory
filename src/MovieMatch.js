@@ -8,6 +8,7 @@ import { handlePushToFirebase } from "./ourDbFunctions.js";
 const MovieMatch = () => {
   const [englishFilmRes, setEnglishFilmRes] = useState([]);
   const [foreignFilmRes, setForeignFilmRes] = useState([]);
+  const [viewMatch, setViewMatch] = useState(true);
   const { movieID, foreignMovieID } = useParams();
 
   useEffect(
@@ -38,33 +39,46 @@ const MovieMatch = () => {
   );
 
   return (
-    <div>
-      <h2>Path to foreign film</h2>
-      <div className="matchedMovieContainer">
-        <MovieCard
-          key={englishFilmRes.id}
-          movieKey={englishFilmRes.id}
-          cardClass={"movieMatchEnglishCard"}
-          imgClass={"imgContainer"}
-          movieOgLang={englishFilmRes.original_language}
-          movieTitle={englishFilmRes.title}
-          moviePoster={englishFilmRes.poster_path}
-        />
-        <MovieCard
-          key={foreignFilmRes.id}
-          movieKey={foreignFilmRes.id}
-          cardClass={"movieMatchForeignCard"}
-          imgClass={"imgContainer"}
-          movieOgLang={foreignFilmRes.original_language}
-          movieTitle={foreignFilmRes.title}
-          moviePoster={foreignFilmRes.poster_path}
-        />
-      </div>
-      {/* push englishMovieID and foreignMovieID into firebase */}
-      <button onClick={() => handlePushToFirebase(movieID, foreignMovieID)}>
-        Save to my List
-      </button>
-    </div>
+            viewMatch === true
+            ?
+            <div>
+                <h2>Path to foreign film</h2>
+                <div className="matchedMovieContainer">
+                    <MovieCard
+                        key={englishFilmRes.id}
+                        movieKey={englishFilmRes.id}
+                        cardClass={"movieMatchEnglishCard"}
+                        imgClass={"imgContainer"}
+                        movieOgLang={englishFilmRes.original_language}
+                        movieTitle={englishFilmRes.title}
+                        moviePoster={englishFilmRes.poster_path}
+                    />
+                    <MovieCard
+                        key={foreignFilmRes.id}
+                        movieKey={foreignFilmRes.id}
+                        cardClass={"movieMatchForeignCard"}
+                        imgClass={"imgContainer"}
+                        movieOgLang={foreignFilmRes.original_language}
+                        movieTitle={foreignFilmRes.title}
+                        moviePoster={foreignFilmRes.poster_path}
+                    />
+                </div>
+                {/* push englishMovieID and foreignMovieID into firebase */}
+                <button onClick={function(){
+                    handlePushToFirebase(movieID, foreignMovieID)
+                    setViewMatch(false);
+                }
+                    }>
+                Save to my List
+                </button>
+            </div>
+            :
+            <>
+                <h1>fillertext!</h1>
+                <button onClick={function(){
+                    setViewMatch(true);
+                }}>SUBMIT ANOTHER?!?!??!??</button>
+            </>
   );
 };
 export default MovieMatch;

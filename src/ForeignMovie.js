@@ -61,7 +61,7 @@ function ForeignMovie() {
         If you liked <span>klsjflds</span>, you may like...
       </p>
 
-      <div className='scrollContainer'>
+      {/* <div className='scrollContainer'> */}
         <ul>
           {movie.map((currentMovie) => {
             return (
@@ -74,15 +74,22 @@ function ForeignMovie() {
                   movieKey={currentMovie.id}
                   cardClass={"textContainer"}
                   imgClass={"imgContainer"}
-                  movieOgLang={currentMovie.original_language}
+                  cardInformation={""}
                   movieTitle={currentMovie.title}
                   moviePoster={currentMovie.poster_path}
+                  showOgLang={true}
+                  movieOgLang={currentMovie.original_language}
+                  movieReleaseDate={currentMovie.release_date}
+                  showMovieReleaseDate={true}
+                  movieDescription={currentMovie.overview}
+                  showMovieDescription={false}
+
                 />
               </Link>
             );
           })}
         </ul>
-      </div>
+      {/* </div> */}
     </section>
   );
 }

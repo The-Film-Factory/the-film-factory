@@ -18,6 +18,7 @@ header nav ul li.englishMovieSearchContainer{
             transition: ease all 0.2s;
             border:none;
             border-radius: 10px;
+
         }
         input:hover,
         input:focus{
@@ -70,21 +71,43 @@ header nav ul li.englishMovieSearchContainer{
             height:150px;
             position: absolute;
             background-color: black;
+            overflow: hidden;
+            transition: ease all 0.15s;
+
 
             .searchBarCardInformation{
                 color:white;
                 padding-left:50px;
                 display:flex;
                 flex-direction: column;
-                margin-top:10px;
+                padding:0;
 
+                p{
+                    padding:5px 45px 5px 0;
+                    font-size:1rem;
+                    text-align: justify;
+                    text-justify: auto;
+                    span{
+                        font-weight: 900;
+                    }
+                }
                 h2{
-                    margin-top:10px;
+                    margin-top:5px;
+                    margin-bottom: 0;
+                }
+                .releaseDateClass{
+                    font-size:1rem;
+                    position: absolute;
+                    top:0;
+                    right:0;
                 }
                 
             }
             .searchBarImageContainer{
-                height:150px;
+                height:100%;
+                width:100%;
+                max-width:100px;
+                margin-right:10px;
                 img{
                     height:100%;
                     padding:0;
@@ -96,9 +119,12 @@ header nav ul li.englishMovieSearchContainer{
         .searchBarMovie:focus{
             filter: drop-shadow(0 0 5px black);
             background-color: black;
+            cursor: default;
             .searchBarCardInformation{
-                p {
-                    color: white; 
+                p,h2 
+                {
+                    // filter: drop-shadow(0 0 1px white);
+                    color: $color-tertiary; 
                 }
             }
         }    
@@ -121,18 +147,24 @@ header nav ul li.englishMovieSearchContainer{
                         }
                         .searchBarMovie{
                             padding:0 0 0 25px;
+                            height:100%;
+                            position: relative;
                             .searchBarCardInformation{
                 
                                 h2{
-                                    //RESTYLE THIS
+                                    font-size: 1.25rem;
                                 }
                                 
                                 p{
                                     
                                     //RESTYLE THIS
                                 }
+                                .releaseDateClass{
+                                    position: relative;
+                                }
                             }
                             .searchBarImageContainer{
+                                display:none;
                                 img{
                                 }
                             }
