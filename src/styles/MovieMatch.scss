@@ -111,6 +111,41 @@
   justify-content: center;
 }
 
+.linkButton {
+  font-family: $font-secondary;
+  background-color: rgb(31, 31, 31);
+  border: 1px solid rgb(31, 31, 31);
+  font-size: 1rem; 
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin: 1rem auto;
+  width: 50%;
+
+  &:focus, 
+  &:hover {
+    transition: all 0.2s;
+    background-color: #333;
+    color: white; 
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 3px );
+    -webkit-backdrop-filter: blur( 3px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    box-shadow: 4px 4px rgb(80, 80, 80);
+    }
+}
+   
+
+main .linkButton {
+  color: white;
+}
+
+.linkContainer {
+  display: flex;
+  flex-direction: column;
+}
+
 @media (max-width: 940px) {
     
 }
