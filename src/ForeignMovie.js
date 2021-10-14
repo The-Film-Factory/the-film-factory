@@ -59,6 +59,7 @@ function ForeignMovie() {
     <section className="movieContainer">
       <h3>Similar foreign films based on your search...</h3>
 
+
       <div className="scrollContainer">
         <ul>
           {movie.map((currentMovie) => {

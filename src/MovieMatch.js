@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MovieCard from "./MovieCard";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 import { handlePushToFirebase } from "./ourDbFunctions.js";
 
@@ -74,17 +75,16 @@ const MovieMatch = () => {
       </ul>
     </div>
   ) : (
-    <>
       <h3>Saved!</h3>
-
-      <button
-        onClick={function () {
-          setViewMatch(true);
-        }}
-      >
-        Return to Previous Page
-      </button>
-    </>
+            </div>
+            :
+            <>
+              <h3>Saved!</h3>
+              
+              <Link className="linkButton" to={`/movie/${movieID}`}>Choose another recommendation for this film</Link>
+              <Link className="linkButton" to={'/watchlist'}>View this match among others in the public match list</Link>
+    
+            </>
   );
 };
 export default MovieMatch;
