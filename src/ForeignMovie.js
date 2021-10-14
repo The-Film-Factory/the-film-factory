@@ -59,8 +59,8 @@ function ForeignMovie() {
     <section className="movieContainer">
       <h3>Similar foreign films based on your search...</h3>
 
-
-      <div className="scrollContainer">
+      <div className='scrollContainer'>
+          <div className="transparencyBoxLeft"></div>
         <ul>
           {movie.map((currentMovie) => {
             return (
@@ -69,24 +69,26 @@ function ForeignMovie() {
                 key={currentMovie.id}
               >
                 <MovieCard
-                  key={currentMovie.id}
-                  movieKey={currentMovie.id}
-                  cardClass={"textContainer"}
-                  imgClass={"imgContainer"}
-                  cardInformation={""}
-                  movieTitle={currentMovie.title}
-                  moviePoster={currentMovie.poster_path}
-                  showOgLang={true}
-                  movieOgLang={currentMovie.original_language}
-                  movieReleaseDate={currentMovie.release_date}
-                  showMovieReleaseDate={true}
-                  movieDescription={currentMovie.overview}
-                  showMovieDescription={false}
+                key={currentMovie.id}
+                movieKey={currentMovie.id}
+                cardClass={"foreignMovieCardTopContainer"}
+                imgClass={"foreignMovieImageContainer"}
+                cardInformation={"foreignMovieTextContainer"}
+                movieTitle={currentMovie.title}
+                moviePoster={currentMovie.poster_path}
+                showOgLang={true}
+                movieOgLang={currentMovie.original_language}
+                movieReleaseDate={currentMovie.release_date}
+                showMovieReleaseDate={true}
+                movieDescription={currentMovie.overview}
+                showMovieDescription={false}
                 />
               </Link>
             );
           })}
         </ul>
+
+        <div className="transparencyBoxRight"></div>
       </div>
     </section>
   );
