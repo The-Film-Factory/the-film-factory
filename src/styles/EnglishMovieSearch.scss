@@ -15,7 +15,10 @@ header nav ul li.englishMovieSearchContainer{
             height:55px;
             margin: 0;
             padding: 0 10px; 
-            transition: ease all 0.2s
+            transition: ease all 0.2s;
+            border:none;
+            border-radius: 10px;
+
         }
         input:hover,
         input:focus{

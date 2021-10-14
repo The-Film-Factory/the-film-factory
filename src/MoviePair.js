@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import MovieCard from "./MovieCard";
-import { Link } from "react-router-dom";
+
 
 const MoviePair = ({ match }) => {
   const [matchData, setMatchData] = useState([]);
@@ -52,9 +52,8 @@ const MoviePair = ({ match }) => {
   return (
     <>
       {matchData.length > 0 ? (
-        <Link to="/watchlist">
+        
           <div className="pairContainer">
-
             <MovieCard
               key={matchData[0].id}
               movieKey={matchData[0].id}
@@ -80,10 +79,11 @@ const MoviePair = ({ match }) => {
               moviePoster={matchData[1].poster_path}
             />
           </div>
-        </Link>
       ) : null}
     </>
   );
 };
 
 export default MoviePair;
+
+        
