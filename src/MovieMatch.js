@@ -68,8 +68,9 @@ const MovieMatch = () => {
                         movieTitle={foreignFilmRes.title}
                         moviePoster={foreignFilmRes.poster_path}
                     />
+
                 </ul>
-                
+
             </div>
             :
             <>

@@ -1,5 +1,5 @@
 import "./styles/App.scss";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import ForeignMovie from "./ForeignMovie.js";
 import Navigation from "./Navigation.js";
 import MovieMatch from "./MovieMatch";
@@ -34,14 +34,12 @@ function App() {
         <footer>
           <p>
             Copyright © 2021
-            <a href="https://junocollege.com/">
-              {" "}
-              Juno College of Technology
-            </a>{" "}
+            <a href="https://junocollege.com/"> Juno College of Technology</a>
             (formerly HackerYou)
           </p>
           <p>
-            Data courtesy of <a href="https://opentdb.com/"> Open Trivia DB</a>
+            Data courtesy of{" "}
+            <a href="https://www.themoviedb.org/">Movie Database</a>
           </p>
         </footer>
       </div>
