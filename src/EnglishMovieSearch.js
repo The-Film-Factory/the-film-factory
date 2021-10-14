@@ -26,7 +26,7 @@ const EnglishMovieSearch = (props) => {
       //if statement just checks if there's a value in searchvalue, if there isn't then it doesn't make a call (the api hates empty strings)
       if (searchValue) {
         axios({
-          url: `https://api.themoviedb.org/3/search/movie/`,
+          url: `https://api.themoviedb.org/3/search/movie`,
           method: "GET",
           dataResponse: "json",
           params: {
