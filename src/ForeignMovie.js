@@ -61,7 +61,8 @@ function ForeignMovie() {
         Similar foreign films based on your search...
       </h3>
 
-      {/* <div className='scrollContainer'> */}
+      <div className='scrollContainer'>
+          <div className="transparencyBoxLeft"></div>
         <ul>
           {movie.map((currentMovie) => {
             return (
@@ -73,9 +74,9 @@ function ForeignMovie() {
                 <MovieCard
                 key={currentMovie.id}
                 movieKey={currentMovie.id}
-                cardClass={"textContainer"}
-                imgClass={"imgContainer"}
-                cardInformation={""}
+                cardClass={"foreignMovieCardTopContainer"}
+                imgClass={"foreignMovieImageContainer"}
+                cardInformation={"foreignMovieTextContainer"}
                 movieTitle={currentMovie.title}
                 moviePoster={currentMovie.poster_path}
                 showOgLang={true}
@@ -90,7 +91,8 @@ function ForeignMovie() {
             );
           })}
         </ul>
-      {/* </div> */}
+        <div className="transparencyBoxRight"></div>
+      </div>
     </section>
   );
 }

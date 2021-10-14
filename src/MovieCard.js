@@ -36,7 +36,7 @@ const MovieCard = (props) => {
         {
             showOgLang
             ?
-            <p>{fullLang[position1]}</p>
+            <p className="languageClass">{fullLang[position1]}</p>
             :
             null
         }
