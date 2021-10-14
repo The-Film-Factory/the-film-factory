@@ -58,13 +58,10 @@
     p {
       margin: 0;
     }  
-    p:first-child {
-      margin-top: 1rem;
-    }
   }
 
   .arrow {
-    font-size: 5rem;
+    font-size: 3.8rem;
   }
 
   // individual card 
@@ -86,6 +83,12 @@
       }
     }
   }
+}
+
+.likeThis {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @media (max-width: 940px) {
@@ -112,4 +115,5 @@
         margin: 5% 0;
       }
     }
-}
+
+
