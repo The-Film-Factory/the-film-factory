@@ -36,10 +36,12 @@ header {
                 font-family: $font-primary;
                 font-size: 1rem; 
                 width: 250px;
+                padding-top: 5px; 
             }
             li.englishMovieSearchContainer {
                 width: calc(100% - 340px);
-                padding-right: 30px;
+                padding-left: 5px;
+                padding-right: 25px;
             }
         } 
     }
@@ -50,7 +52,7 @@ header {
 }
 
 @media (max-width: 768px) {
-     
+
     header{
         nav{
             // nav bar 
