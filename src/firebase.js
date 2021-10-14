@@ -1,8 +1,7 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getDatabase } from 'firebase/database';  
 
-// Your web app's Firebase configuration
+// firebase configs
 const firebaseConfig = {
     apiKey: "AIzaSyAn4CjI8UmRXmS90r502MySrAYA7q8iB5g",
     authDomain: "film-factory-f53ff.firebaseapp.com",
@@ -13,10 +12,7 @@ const firebaseConfig = {
     appId: "1:325687904075:web:58cdfdf6f1bea4b5ab0ace"
 };
 
-
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
 const ourDatabase = getDatabase(app); 
 
 export default ourDatabase;

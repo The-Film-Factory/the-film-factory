@@ -27,10 +27,12 @@ const MovieCard = (props) => {
   /////////////////////////////////////////////////// to do: change null line 21 to placeholder image
 
   return (
-    <li key={movieKey} 
-        className={cardClass}>
+    <li 
+    key={movieKey} 
+    className={cardClass}
+    >
       <div className={cardInformation}>
-        <h2>{movieTitle}</h2>
+        <h4>{movieTitle}</h4>
         {
             showOgLang
             ?
@@ -70,13 +72,6 @@ const MovieCard = (props) => {
 
 export default MovieCard;
 
-
-
-
-
-
-
-
 //      adult: false
 //      backdrop_path: "/pajKyahlPPggk0k5LiA2v4kwWqn.jpg"
 //      genre_ids: Array [ 12, 14 ]
@@ -91,4 +86,3 @@ export default MovieCard;
 //      video: false
 //      vote_average: 7.9
 //      vote_count: 21129
-

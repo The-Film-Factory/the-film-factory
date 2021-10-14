@@ -4,28 +4,21 @@ const HomePage = () => {
   return (
     <div className="homePage">
       <h2>
-        Welcome to <span className="title neon">The Film Factory</span>
+        Welcome to <span className="titleNeon">The Film Factory</span>
       </h2>
-      <h4>How to use us:</h4>
+      {/* <h4>Your source for top foreign film recommendations...</h4> */}
       <div className="instructionContainer">
-        <p>Search for an English language movie</p>
-
         <p>
-          Based on your selection, you'll be presented with foreign language
-          movies that might be similar
+          Search the Film Factory catalogue for your favorite English film, and discover foreign films similar to your English film selection. Love a film pairing? Store your favorites to our public list! Don't forget to also check out the pairing recommendations made by others.
         </p>
-        <p>
-          Other visitors will be able to view your pairing recommendation and
-          you'll be able to view theirs!
-        </p>
-        <p> Pick one and set it as a match </p>
-        <p>
-          If you just want to browse,
-          <span className="watchlist">
-            <Link to="/watchlist">
-              View our list of suggested movie pairings
-            </Link>
-          </span>
+        
+        <p className='watchlist'>
+          See our public list of favorite English/foreign film pairings
+          {' '}
+          <Link to="/watchlist">
+            here
+          </Link>
+          .
         </p>
       </div>
     </div>

@@ -42,42 +42,50 @@ const MovieMatch = () => {
             viewMatch === true
             ?
             <div>
-                <h4>You've made a recommendation!</h4>
+                <h3>You've made a recommendation!</h3>
                 <ul className="matchedMovieContainer">
                     <MovieCard
-                        key={englishFilmRes.id}
-                        movieKey={englishFilmRes.id}
-                        cardClass={"movieMatchEnglishCard"}
-                        imgClass={"imgContainer"}
-                        movieOgLang={englishFilmRes.original_language}
-                        movieTitle={englishFilmRes.title}
-                        moviePoster={englishFilmRes.poster_path}
-                    />
-                    {/* push englishMovieID and foreignMovieID into firebase */}
-                    <button onClick={() => {
-                        handlePushToFirebase(movieID, foreignMovieID)
-                        setViewMatch(false);
-                    }}>Save as a public match
-                    </button>
-                    <MovieCard
-                        key={foreignFilmRes.id}
-                        movieKey={foreignFilmRes.id}
-                        cardClass={"movieMatchForeignCard"}
-                        imgClass={"imgContainer"}
-                        movieOgLang={foreignFilmRes.original_language}
-                        movieTitle={foreignFilmRes.title}
-                        moviePoster={foreignFilmRes.poster_path}
+                    key={englishFilmRes.id}
+                    movieKey={englishFilmRes.id}
+                    cardClass={"movieMatchEnglishCard"}
+                    imgClass={"imgContainer"}
+                    movieOgLang={englishFilmRes.original_language}
+                    movieTitle={englishFilmRes.title}
+                    moviePoster={englishFilmRes.poster_path}
                     />
 
+                    {/* push englishMovieID and foreignMovieID into firebase */}
+                    <button 
+                    onClick={() => {
+                    handlePushToFirebase(movieID, foreignMovieID)
+                    setViewMatch(false);
+                    }}>
+                      Save as a public match
+                    </button>
+
+                    <MovieCard
+                    key={foreignFilmRes.id}
+                    movieKey={foreignFilmRes.id}
+                    cardClass={"movieMatchForeignCard"}
+                    imgClass={"imgContainer"}
+                    movieOgLang={foreignFilmRes.original_language}
+                    movieTitle={foreignFilmRes.title}
+                    moviePoster={foreignFilmRes.poster_path}
+                    />
                 </ul>
 
             </div>
             :
             <>
-                <h1>fillertext!</h1>
-                <button onClick={function(){
-                    setViewMatch(true);
-                }}>SUBMIT ANOTHER?!?!??!??</button>
+              <h3>Saved!</h3>
+
+              <button 
+              onClick={function(){
+              setViewMatch(true);
+              }}
+              >
+                Return to Previous Page
+              </button>
             </>
   );
 };

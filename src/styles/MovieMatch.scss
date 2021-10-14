@@ -1,15 +1,20 @@
-.matchedMovieContainer{
+// =========================
+// english/foreign pairing  
+// =========================
+
+// main container 
+.matchedMovieContainer {
+    align-items: center;
+    width: 90%;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-    width: 90%;
     margin: 0 auto;
-    
+    // individual card 📌📌📌 also stored in MoviePair scss sheet) 
     li {
+        align-items: center;
         width: 35%;
         display: flex;
-        align-items: center;
     }
     button {
         height: 15%;
@@ -17,22 +22,8 @@
 }
 
 .movieMatchEnglishCard,
-.movieMatchForeignCard{
-    width: 20%;
-    
+.movieMatchForeignCard {
     .imgContainer {
         width: 50%;
-    }
-}
-
-.movieMatchEnglishCard{
-    h2 {
-        color:red;
-    }
-}
-
-.movieMatchForeignCard{
-    h2{
-        color:blue;
     }
 }

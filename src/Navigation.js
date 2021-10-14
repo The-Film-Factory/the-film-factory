@@ -6,9 +6,8 @@ import { useState } from "react";
 const Navigation = () => {
   const [bannerMovieVisibile, setBannerMovieVisible] = useState(false);
 
-  // This function sets the visibility of the dropdown menu and banner movie, which we want to turn off on the homepage
-  // It's disabled when the logo is clicked, and is passed as a prop into the search componentn
-  //======================================================
+  // this function sets the visibility of the dropdown menu and banner movie, which we want to turn off on the homepage
+  // it's disabled when the logo is clicked, and is passed as a prop into the search componentn
   const toggleBannerVisibility = function (toggle) {
     if (toggle === true) {
       setBannerMovieVisible(true);
@@ -22,23 +21,26 @@ const Navigation = () => {
       <nav>
         <ul className="navigationContainer">
           <Link
-            to={`/`}
-            onClick={function () {
-              setBannerMovieVisible(false);
-            }}
+          to={`/`}
+          onClick={function () {
+            setBannerMovieVisible(false);
+          }}
           >
             <li className="logoContainer">
               <img className="logo" src={logo} alt="The Film Factory logo" />
             </li>
           </Link>
-          <li className="navFilmFactory">The Film Factory</li>
+          
+          <li className="navFilmFactoryLogo">
+            <h1>The Film Factory</h1>
+          </li>
+          
           <EnglishMovieSearch
-            toggleBanner={toggleBannerVisibility}
-            bannerMovieVisibile={bannerMovieVisibile}
+          toggleBanner={toggleBannerVisibility}
+          bannerMovieVisibile={bannerMovieVisibile}
           />
         </ul>
       </nav>
-      {/* <h1>The Film Factory</h1> */}
     </>
   );
 };

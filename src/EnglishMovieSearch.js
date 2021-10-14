@@ -3,11 +3,10 @@ import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import MovieCard from "./MovieCard";
 
-//First call to get userInput in English name and make the call to get user search
-//once we received usersearch, we stored in moviePicked state
+// first call to get userInput in English name and make the call to get user search
+// once we received usersearch, we stored in moviePicked state
 const EnglishMovieSearch = (props) => {
-  //These props are passed in to control the rendering conditions of the main dropdowns
-  //======================================================
+  // these props are passed in to control the rendering conditions of the main dropdowns
   const { toggleBanner, bannerMovieVisibile } = props;
 
   const [searchValue, setSearchValue] = useState("");
@@ -20,10 +19,10 @@ const EnglishMovieSearch = (props) => {
 
   const [errorMessage, setErrorMessage] = useState(false);
 
-  //useeffect instead of a function
+  // useEffect instead of a function
   useEffect(
     function () {
-      //if statement just checks if there's a value in searchvalue, if there isn't then it doesn't make a call (the api hates empty strings)
+      // if statement just checks if there's a value in searchvalue => if there isn't then, it doesn't make a call (the api hates empty strings)
       if (searchValue) {
         axios({
           url: `https://api.themoviedb.org/3/search/movie`,
@@ -46,16 +45,15 @@ const EnglishMovieSearch = (props) => {
     [searchValue]
   );
 
-  //unaltered, except I removed the makeQuery call
   const getSearch = (query) => {
     if (query !== " ") {
       const newObj = movieResults;
 
       setSearchValue(query);
       setMoviesPicked(newObj);
-      //toggles the visibility of the overal nav and main movie so they for sure appear
+      // toggles the visibility of the overal nav and main movie so they for sure appear
       toggleBanner(true);
-      //Toggles the visilibility of the dropdown to ensure it shows up when typing
+      // toggles the visilibility of the dropdown to ensure it shows up when typing
       setDropdownVisibility(true);
     }
   };
@@ -125,9 +123,10 @@ const EnglishMovieSearch = (props) => {
           ) : (
             <Link to={`/movie/${currentMovie.id}`}>
               <MovieCard
-                //============================================================
-                // These styles are being pushed to the EnglishMovieSearch.scss partial, to specifically style the banner.
-                //============================================================
+                // ============================================================
+                // these styles are being pushed to the EnglishMovieSearch.scss partial, to specifically style the banner
+                // ============================================================
+                // props that hold the moviecard information
                 cardClass={"searchBarMovie"}
                 imgClass={"searchBarImageContainer"}
                 cardInformation={"searchBarCardInformation"}
@@ -141,8 +140,6 @@ const EnglishMovieSearch = (props) => {
                 showMovieReleaseDate={true}
                 movieDescription={currentMovie.overview}
                 showMovieDescription={true}
-
-                //props that hold the moviecard information
               />
             </Link>
           )}

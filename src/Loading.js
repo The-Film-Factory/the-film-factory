@@ -1,8 +1,7 @@
-const Loading = function(){
-    console.log("api is loading");
+const Loading = function() {
     return(
         <div className="loading">
-            <h1>API IS LOADING!!!!!</h1>
+            <p>Loading...</p>
         </div>
     )
 }
