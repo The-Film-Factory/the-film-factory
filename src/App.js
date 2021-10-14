@@ -5,13 +5,22 @@ import Navigation from "./Navigation.js";
 import MovieMatch from "./MovieMatch";
 import DisplayList from "./DisplayList";
 import HomePage from "./HomePage";
+import { useRef } from 'react';
 
 function App() {
+
+  const topReference = useRef(null);
+
+  const sendToTopFunction = function(){
+    topReference.current.scrollIntoView({ behavior:'smooth', block: "start"});   
+  }
+
   return (
     <Router>
       <div className="App">
+        <div ref={topReference}></div>
         <header>
-          <Navigation />
+          <Navigation sendToTop={topReference} sendToTopFunction={sendToTopFunction}/>
         </header>
         <Route exact path="/">
           <HomePage />
