@@ -57,9 +57,7 @@ function ForeignMovie() {
   // id's no longer needed to pass into .map since state is directly being passed
   return (
     <section className="movieContainer">
-      <h3>
-        Similar foreign films based on your search...
-      </h3>
+      <h3>Similar foreign films based on your search...</h3>
 
       <div className='scrollContainer'>
           <div className="transparencyBoxLeft"></div>
@@ -67,10 +65,9 @@ function ForeignMovie() {
           {movie.map((currentMovie) => {
             return (
               <Link
-              to={`/movie/${movieID}/${currentMovie.id}`}
-              key={currentMovie.id}
+                to={`/movie/${movieID}/${currentMovie.id}`}
+                key={currentMovie.id}
               >
-
                 <MovieCard
                 key={currentMovie.id}
                 movieKey={currentMovie.id}
@@ -86,11 +83,11 @@ function ForeignMovie() {
                 movieDescription={currentMovie.overview}
                 showMovieDescription={false}
                 />
-
               </Link>
             );
           })}
         </ul>
+
         <div className="transparencyBoxRight"></div>
       </div>
     </section>
