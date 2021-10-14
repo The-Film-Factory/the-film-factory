@@ -10,6 +10,7 @@
     flex-direction: row;
     justify-content: center;
     margin: 0 auto;
+
     // individual card 📌📌📌 also stored in MoviePair scss sheet) 
     li {
         align-items: center;
@@ -26,7 +27,6 @@
     // individual card (📌📌📌 also stored in MovieMatch scss sheet) 
     .movieMatchEnglishCard,
     .movieMatchForeignCard {
-
         width: calc(50% - 20px);
         background: rgba( 255, 255, 255, 0.2 );
         box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
@@ -35,9 +35,10 @@
         border-radius: 10px;
         border: 1px solid rgba( 255, 255, 255, 0.18 );
 
-            .imgContainer {
-                width: 50%;
-            }
+          .imgContainer {
+              width: 50%;
+          }
+
         margin: 0 20px; 
     } 
 }
@@ -92,9 +93,23 @@
 }
 
 @media (max-width: 768px) {
-    
+    .matchedMovieContainer {
+      flex-direction: column;
+      .movieMatchEnglishCard,
+      .movieMatchForeignCard {
+        width: 80%;
+        margin: 5% 0;
+      }
+    }
 }
 
 @media (max-width: 480px) {
-    
+    .matchedMovieContainer {
+      flex-direction: column;
+      .movieMatchEnglishCard,
+      .movieMatchForeignCard {
+        width: 90%;
+        margin: 5% 0;
+      }
+    }
 }
