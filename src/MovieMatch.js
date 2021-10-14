@@ -78,9 +78,10 @@ const MovieMatch = () => {
       : 
       <>
         <h3>Saved!</h3>
-        
-        <Link className="linkButton" to={`/movie/${movieID}`}>Choose another recommendation for this film</Link>
-        <Link className="linkButton" to={'/watchlist'}>View this match among others in the public match list</Link>
+        <div className="linkContainer">
+          <Link className="linkButton" to={`/movie/${movieID}`}>Choose another recommendation for this film</Link>
+          <Link className="linkButton" to={'/watchlist'}>View this match among others in the public match list</Link>
+        </div>
 
       </>
   );
