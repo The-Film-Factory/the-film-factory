@@ -42,8 +42,8 @@ const MovieMatch = () => {
             viewMatch === true
             ?
             <div>
-                <h2>Path to foreign film</h2>
-                <div className="matchedMovieContainer">
+                <h4>You've made a recommendation!</h4>
+                <ul className="matchedMovieContainer">
                     <MovieCard
                         key={englishFilmRes.id}
                         movieKey={englishFilmRes.id}
@@ -53,6 +53,12 @@ const MovieMatch = () => {
                         movieTitle={englishFilmRes.title}
                         moviePoster={englishFilmRes.poster_path}
                     />
+                    {/* push englishMovieID and foreignMovieID into firebase */}
+                    <button onClick={() => {
+                        handlePushToFirebase(movieID, foreignMovieID)
+                        setViewMatch(false);
+                    }}>Save as a public match
+                    </button>
                     <MovieCard
                         key={foreignFilmRes.id}
                         movieKey={foreignFilmRes.id}
@@ -62,15 +68,9 @@ const MovieMatch = () => {
                         movieTitle={foreignFilmRes.title}
                         moviePoster={foreignFilmRes.poster_path}
                     />
-                </div>
-                {/* push englishMovieID and foreignMovieID into firebase */}
-                <button onClick={function(){
-                    handlePushToFirebase(movieID, foreignMovieID)
-                    setViewMatch(false);
-                }
-                    }>
-                Save to my List
-                </button>
+
+                </ul>
+
             </div>
             :
             <>
