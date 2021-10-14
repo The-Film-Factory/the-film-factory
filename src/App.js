@@ -13,7 +13,7 @@ function App() {
         <header>
           <Navigation />
         </header>
-        <Route path="/">
+        <Route exact path="/">
           <HomePage />
         </Route>
 
