@@ -57,40 +57,36 @@ function ForeignMovie() {
   // id's no longer needed to pass into .map since state is directly being passed
   return (
     <section className="movieContainer">
-      <h3>
-        Similar foreign films based on your search...
-      </h3>
+      <h3>Similar foreign films based on your search...</h3>
 
-      {/* <div className='scrollContainer'> */}
+      <div className="scrollContainer">
         <ul>
           {movie.map((currentMovie) => {
             return (
               <Link
-              to={`/movie/${movieID}/${currentMovie.id}`}
-              key={currentMovie.id}
-              >
-
-                <MovieCard
+                to={`/movie/${movieID}/${currentMovie.id}`}
                 key={currentMovie.id}
-                movieKey={currentMovie.id}
-                cardClass={"textContainer"}
-                imgClass={"imgContainer"}
-                cardInformation={""}
-                movieTitle={currentMovie.title}
-                moviePoster={currentMovie.poster_path}
-                showOgLang={true}
-                movieOgLang={currentMovie.original_language}
-                movieReleaseDate={currentMovie.release_date}
-                showMovieReleaseDate={true}
-                movieDescription={currentMovie.overview}
-                showMovieDescription={false}
+              >
+                <MovieCard
+                  key={currentMovie.id}
+                  movieKey={currentMovie.id}
+                  cardClass={"textContainer"}
+                  imgClass={"imgContainer"}
+                  cardInformation={""}
+                  movieTitle={currentMovie.title}
+                  moviePoster={currentMovie.poster_path}
+                  showOgLang={true}
+                  movieOgLang={currentMovie.original_language}
+                  movieReleaseDate={currentMovie.release_date}
+                  showMovieReleaseDate={true}
+                  movieDescription={currentMovie.overview}
+                  showMovieDescription={false}
                 />
-
               </Link>
             );
           })}
         </ul>
-      {/* </div> */}
+      </div>
     </section>
   );
 }
