@@ -5,8 +5,8 @@ import MoviePair from "./MoviePair";
 const DisplayList = () => {
   const [matchList, setMatchList] = useState([]);
 
-  const [pageNum, setPageNum] = useState(0)
-  const [paginatedMatchList, setPaginatedMatchList] = useState([])
+  const [pageNum, setPageNum] = useState(0);
+  const [paginatedMatchList, setPaginatedMatchList] = useState([]);
 
   // make call to the DB for the public matches and set them to state
 
@@ -27,53 +27,53 @@ const DisplayList = () => {
   // when the results are in from the DB, cut them into pages of ten and put that cut-up array into state
   useEffect(() => {
     const numOfPages = matchList.length / 10;
-    const newArray = []
-    for(let i = 0; i < numOfPages; i++) {
-      if(i === 0) {
-        newArray.push(matchList.slice(0, 10))
+    const newArray = [];
+    for (let i = 0; i < numOfPages; i++) {
+      if (i === 0) {
+        newArray.push(matchList.slice(0, 10));
       } else {
         const begin = i * 10;
-        const end = (i * 10) + 10;
-        newArray.push(matchList.slice(begin, end))
+        const end = i * 10 + 10;
+        newArray.push(matchList.slice(begin, end));
       }
-    };
+    }
     setPaginatedMatchList(newArray);
-  }, [matchList])
+  }, [matchList]);
 
   // increase page number
   const nextPageClick = () => {
-    if(pageNum === paginatedMatchList.length -1) {
-      return
+    if (pageNum === paginatedMatchList.length - 1) {
+      return;
     }
     setPageNum(pageNum + 1);
-  }
+  };
 
   // decrease page number
   const previousPageClick = () => {
-    if(pageNum <= 0) {
-      return
+    if (pageNum <= 0) {
+      return;
     }
-    setPageNum(pageNum -1);
-  }
+    setPageNum(pageNum - 1);
+  };
 
   // map over the array index according to the page number
 
   return (
     <div className="displayPairs">
-
-      { paginatedMatchList[0] ? 
+      {paginatedMatchList[0] ? (
         paginatedMatchList[pageNum].map((match) => {
-          return( 
-            <MoviePair key={match.id} match={match} />
-          )
+          return <MoviePair key={match.id} match={match} />;
         })
-        : <h3>Fetching Public Matches from the Database</h3>
-      }
-
-      <button onClick={nextPageClick}>Next page</button>
-      <button onClick={previousPageClick} >Previous page</button>
-      <p>{pageNum + 1} of {paginatedMatchList.length}</p>  
-
+      ) : (
+        <h3>Fetching Public Matches from the Database</h3>
+      )}
+      <div className="displayPage">
+        <button onClick={nextPageClick}>Next page</button>
+        <p>
+          {pageNum + 1} of {paginatedMatchList.length}
+        </p>
+        <button onClick={previousPageClick}>Previous page</button>
+      </div>
     </div>
   );
 };
