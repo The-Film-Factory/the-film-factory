@@ -65,7 +65,7 @@ const MovieMatch = () => {
                 </div>
                 {/* push englishMovieID and foreignMovieID into firebase */}
                 <button onClick={function(){
-                    // handlePushToFirebase(movieID, foreignMovieID)
+                    handlePushToFirebase(movieID, foreignMovieID)
                     setViewMatch(false);
                 }
                     }>
