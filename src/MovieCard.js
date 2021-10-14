@@ -390,20 +390,13 @@ const MovieCard = (props) => {
   //   console.log(position1);
   /////////////////////////////////////////////////// to do: change null line 21 to placeholder image
 
-  console.log(moviePoster);
-
   return (
     <li key={movieKey} className={cardClass}>
       <div className={cardInformation}>
         <h4>{movieTitle}</h4>
-        {
-            showOgLang
-            ?
-            <p className="languageClass">{fullLang[position1]}</p>
-            :
-            null
-        }
-
+        {showOgLang ? (
+          <p className="languageClass">{fullLang[position1]}</p>
+        ) : null}
 
         {showMovieReleaseDate ? (
           <p className="releaseDateClass">{movieReleaseDate}</p>
@@ -417,7 +410,7 @@ const MovieCard = (props) => {
       <div className={imgClass}>
         <img
           src={
-            moviePoster !== null
+            moviePoster
               ? `https://image.tmdb.org/t/p/w500/${moviePoster}`
               : placeholder
           }
