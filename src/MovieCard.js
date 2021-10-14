@@ -34,14 +34,14 @@ const MovieCard = (props) => {
         {
             showMovieReleaseDate
             ?
-            <p className="releaseDateClass">Release Date: {movieReleaseDate}</p>
+            <p className="releaseDateClass">{movieReleaseDate}</p>
             :
             null
         }
         {
             showMovieDescription
             ?
-            <p>Description: {movieDescription}</p>
+            <p><span>Description</span>: {movieDescription}</p>
             :
             null
         }

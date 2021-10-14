@@ -27,6 +27,11 @@ header{
 
                 .logo{
                     object-fit:contain;
+                    transition: ease all 0.2s
+                }
+                .logo:focus,
+                .logo:hover{
+                    filter: drop-shadow(0 0 5px white);
                 }
             } 
             li.navFilmFactory{

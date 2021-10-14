@@ -15,6 +15,11 @@ header nav ul li.englishMovieSearchContainer{
             height:55px;
             margin: 0;
             padding: 0 10px; 
+            transition: ease all 0.2s
+        }
+        input:hover,
+        input:focus{
+            filter: drop-shadow(0 0 5px white);
         }
     }
 
@@ -75,10 +80,13 @@ header nav ul li.englishMovieSearchContainer{
                 padding:0;
 
                 p{
-                    padding:5px 30px 5px 0;
+                    padding:5px 45px 5px 0;
                     font-size:1rem;
                     text-align: justify;
                     text-justify: auto;
+                    span{
+                        font-weight: 900;
+                    }
                 }
                 h2{
                     margin-top:5px;
@@ -108,6 +116,7 @@ header nav ul li.englishMovieSearchContainer{
         .searchBarMovie:focus{
             filter: drop-shadow(0 0 5px black);
             background-color: black;
+            cursor: default;
             .searchBarCardInformation{
                 p,h2 
                 {
@@ -140,7 +149,7 @@ header nav ul li.englishMovieSearchContainer{
                             .searchBarCardInformation{
                 
                                 h2{
-                                    //RESTYLE THIS
+                                    font-size: 1.25rem;
                                 }
                                 
                                 p{

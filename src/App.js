@@ -4,16 +4,17 @@ import ForeignMovie from "./ForeignMovie.js";
 import Navigation from "./Navigation.js";
 import MovieMatch from "./MovieMatch";
 import DisplayList from "./DisplayList";
+import HomePage from "./HomePage";
 
 function App() {
-
   return (
     <Router>
       <div className="App">
+        <header>
+          <Navigation />
+        </header>
         <Route path="/">
-          <header>
-            <Navigation/>
-          </header>
+          <HomePage />
         </Route>
 
         <main>
@@ -24,8 +25,6 @@ function App() {
           <Route path="/movie/:movieID/:foreignMovieID">
             <MovieMatch />
           </Route>
-
-          <Link to="/watchlist">WatchList</Link>
 
           <Route path="/watchlist">
             <DisplayList />
