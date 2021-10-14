@@ -1,0 +1,58 @@
+// h1 - nav bar text logo 
+// h2 - homepage welcome 
+// h3 - main container title 
+// h4 - movie title 
+
+body {
+    background-color: $color-primary;
+    font-family: $font-secondary;
+    font-size: 125%; 
+    text-align: center;
+}
+
+h3 {
+    font-size: 2rem; 
+    margin-top: 50px; 
+} 
+
+ul {
+    text-align: left;
+    width: 30%; 
+    margin: 0 auto; 
+    padding: 0; 
+} 
+
+li {
+    list-style-type: none;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between;
+    padding: 25px; 
+} 
+
+img {
+    max-width: 100%; 
+    object-fit: contain; 
+} 
+
+a,
+a:visited {
+    text-decoration: none;
+    color: black; 
+} 
+
+footer {
+    margin-top: 25px; 
+    padding: 5px; 
+    a,
+    a:visited {
+        color: black; 
+        border-bottom: 2px solid black;
+    }
+    a:focus,
+    a:hover {
+        color: blue; 
+        border-bottom: 2px solid blue;
+        transition: all 0.2s;
+    } 
+} 

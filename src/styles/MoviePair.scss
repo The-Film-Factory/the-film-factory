@@ -1,13 +1,46 @@
+// =========================
+// english/foreign pairing  
+// =========================
+
+// individual card (📌📌📌 also stored in MovieMatch scss sheet) 
+.movieMatchEnglishCard,
+.movieMatchForeignCard {
+  width: 50%;
+  background: rgba( 255, 255, 255, 0.2 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 3px );
+  -webkit-backdrop-filter: blur( 3px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+// =========================
+// firebase data 
+// =========================
+
+// main container 
 .displayPairs {
   display: flex;
   flex-direction: column;
   margin-top: 2rem;
 
-
-  h3 {
-    font-size: 3rem;
+  // individual pair 
+  .pairContainer {
+    display: flex;
+    justify-content: space-around;
+    // if you like x, you might like y 
+    p {
+      margin: 0;
+    }  
+    p:first-child {
+      margin-top: 1rem;
+    }
+  }
+  .arrow {
+    font-size: 5rem;
   }
 
+  // individual card 
   li {
     flex-direction: row;
     width: 40%;
@@ -18,58 +51,12 @@
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     justify-self: center;
-
     margin-bottom: 2rem;
-
     .imgContainer {
       width: 40%;
-
       img {
         max-width: 100%;
       }
     }
   }
-
-  
-}
-
-.movieMatchEnglishCard,
-.movieMatchForeignCard {
-  width: 50%;
-  background: rgba( 255, 255, 255, 0.2 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 3px );
-  -webkit-backdrop-filter: blur( 3px );
-  border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
-
-  h2 {
-    font-size: 1.3rem;
-  }
-
-}
-
-.likeThis {
-  
-  
-
-}
-
-.pairContainer {
-  display: flex;
-  justify-content: space-around;
-
-  p {
-    margin: 0;
-  }
-
-  p:first-child {
-    margin-top: 1rem;
-  }
- 
-}
-
-.arrow {
-  font-size: 5rem;
-  
 }
