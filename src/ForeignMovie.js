@@ -61,7 +61,7 @@ function ForeignMovie() {
         Similar foreign films based on your search...
       </h3>
 
-      {/* <div className='scrollContainer'> */}
+      <div className='scrollContainer'>
         <ul>
           {movie.map((currentMovie) => {
             return (
@@ -90,7 +90,7 @@ function ForeignMovie() {
             );
           })}
         </ul>
-      {/* </div> */}
+      </div>
     </section>
   );
 }
