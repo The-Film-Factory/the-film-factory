@@ -1,0 +1,69 @@
+.homePage {
+    padding: 0 25px;
+    
+
+    .title {
+        display: block;
+        font-size: 80px;
+        padding: 20px 0;
+    }
+
+    .watchlist {
+        display: block;
+    }
+
+    .instructionContainer {
+        border: 5px dotted $color-secondary; 
+        width: 60%; 
+        margin: 25px auto;
+        padding: 50px;
+        text-align: left;
+    }
+
+    h2 {
+        font-size: 40px;
+        color: black;
+        font-family: $font-primary;
+        font-weight: 700;
+        font-style: italic;
+    }
+
+    .neon {
+        animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+        from {
+            color: $color-secondary;
+            text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px white, 0 0 25px white, 0 0 30px white, 0 0 35px white, 0 0 45px white;
+        }
+
+        to {
+            color: white;
+            text-shadow: 0 0 10px white, 0 0 15px white, 0 0 20px white, 0 0 25px white, 0 0 30px white, 0 0 35px white, 0 0 40px white, 0 1 45px white;
+        }
+    }
+
+
+}
+
+@media (max-width: 940px) {
+    
+}
+
+@media (max-width: 768px) {
+    .homePage {
+        .instructionContainer {
+            width: 80%; 
+        }
+    } 
+}
+
+@media (max-width: 480px) {
+    .homePage {
+        .instructionContainer {
+            width: 100%; 
+            padding: 20px 0;
+        }
+    } 
+}
