@@ -1,16 +1,10 @@
 @import './setup'; 
 @import './variables';
-@import './styling';
-@import './MovieMatch'; 
+@import './global';
+
+@import './HomePage';
 @import './Navigation.scss';
 @import './EnglishMovieSearch.scss';
+@import './ForeignMovie.scss';
+@import './MovieMatch'; 
 @import './MoviePair';
-@import './HomePage';
-
-// move this later!! 
-.scrollContainer ul {
-    border: 2px solid black; 
-    display: flex; 
-    overflow-x: auto;
-    overflow-y: hidden; 
-} 

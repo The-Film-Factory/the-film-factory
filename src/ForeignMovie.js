@@ -37,11 +37,11 @@ function ForeignMovie() {
     // callback to run when all promises are fulfilled (once movies have returned)
     Promise.all(newArray).then((allResponses) => {
       allResponses.forEach((response) => {
-        //use spread operator to make it into a big array of 100 films for filter
+        // use spread operator to make it into a big array of 100 films for filter
         promiseArray.push(...response.data.results);
       });
 
-      //filter on foreginMovies
+      // filter on foreignMovies
       const foreignMovies = promiseArray.filter(
         (movie) => movie.original_language !== "en"
       );
@@ -54,37 +54,38 @@ function ForeignMovie() {
     });
   }, [movieID]);
 
-  // ids no longer needed to pass into .map since state is directly being passed
+  // id's no longer needed to pass into .map since state is directly being passed
   return (
     <section className="movieContainer">
-      <p>
-        If you liked <span>klsjflds</span>, you may like...
-      </p>
+      <h3>
+        Similar foreign films based on your search...
+      </h3>
 
       {/* <div className='scrollContainer'> */}
         <ul>
           {movie.map((currentMovie) => {
             return (
               <Link
-                to={`/movie/${movieID}/${currentMovie.id}`}
-                key={currentMovie.id}
+              to={`/movie/${movieID}/${currentMovie.id}`}
+              key={currentMovie.id}
               >
-                <MovieCard
-                  key={currentMovie.id}
-                  movieKey={currentMovie.id}
-                  cardClass={"textContainer"}
-                  imgClass={"imgContainer"}
-                  cardInformation={""}
-                  movieTitle={currentMovie.title}
-                  moviePoster={currentMovie.poster_path}
-                  showOgLang={true}
-                  movieOgLang={currentMovie.original_language}
-                  movieReleaseDate={currentMovie.release_date}
-                  showMovieReleaseDate={true}
-                  movieDescription={currentMovie.overview}
-                  showMovieDescription={false}
 
+                <MovieCard
+                key={currentMovie.id}
+                movieKey={currentMovie.id}
+                cardClass={"textContainer"}
+                imgClass={"imgContainer"}
+                cardInformation={""}
+                movieTitle={currentMovie.title}
+                moviePoster={currentMovie.poster_path}
+                showOgLang={true}
+                movieOgLang={currentMovie.original_language}
+                movieReleaseDate={currentMovie.release_date}
+                showMovieReleaseDate={true}
+                movieDescription={currentMovie.overview}
+                showMovieDescription={false}
                 />
+
               </Link>
             );
           })}
