@@ -1,21 +1,13 @@
 import EnglishMovieSearch from "./EnglishMovieSearch.js";
 import logo from "./assets/logo512.png";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
 const Navigation = (props) => {
-  const { sendToTopFunction } = props;
-  const [bannerMovieVisibile, setBannerMovieVisible] = useState(false);
+  const { sendToTopFunction, toggleBannerVisibility, bannerMovieVisibile } = props;
 
   // this function sets the visibility of the dropdown menu and banner movie, which we want to turn off on the homepage
   // it's disabled when the logo is clicked, and is passed as a prop into the search componentn
-  const toggleBannerVisibility = function (toggle) {
-    if (toggle === true) {
-      setBannerMovieVisible(true);
-    } else {
-      setBannerMovieVisible(false);
-    }
-  };
+
 
   return (
     <>
@@ -24,7 +16,7 @@ const Navigation = (props) => {
           <Link
           to={`/`}
           onClick={function () {
-            setBannerMovieVisible(false);
+            toggleBannerVisibility(false);
           }}
           >
             <li className="logoContainer" onClick={ () => sendToTopFunction()}>

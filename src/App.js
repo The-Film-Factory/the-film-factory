@@ -5,17 +5,29 @@ import Navigation from "./Navigation.js";
 import MovieMatch from "./MovieMatch";
 import DisplayList from "./DisplayList";
 import HomePage from "./HomePage";
-import { useRef } from "react";
+import { useRef, useState } from 'react';
+
 
 function App() {
   const topReference = useRef(null);
   const botReference = useRef(null);
+  const [bannerMovieVisibile, setBannerMovieVisible] = useState(false);
 
-  const sendToTopFunction = function () {
-    topReference.current.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-  const sendToBotFunction = function () {
-    botReference.current.scrollIntoView({ behavior: "smooth", block: "end" });
+  const sendToTopFunction = function(){
+    topReference.current.scrollIntoView({ behavior:'smooth', block: "start"});   
+  }
+  
+  const sendToBotFunction = function(){
+    botReference.current.scrollIntoView({ behavior:'smooth', block: "end"});  
+  }
+
+
+  const toggleBannerVisibility = function (toggle) {
+    if (toggle === true) {
+      setBannerMovieVisible(true);
+    } else {
+      setBannerMovieVisible(false);
+    }
   };
 
   return (
@@ -23,10 +35,12 @@ function App() {
       <div className="App">
         <div ref={topReference}></div>
         <header>
-          <Navigation sendToTopFunction={sendToTopFunction} />
+
+          <Navigation sendToTopFunction={sendToTopFunction} toggleBannerVisibility={toggleBannerVisibility} bannerMovieVisibile={bannerMovieVisibile}/>
+
         </header>
         <Route exact path="/">
-          <HomePage />
+          <HomePage toggleBannerVisibility={toggleBannerVisibility}/>
         </Route>
 
         <main>
@@ -35,7 +49,9 @@ function App() {
           </Route>
 
           <Route path="/movie/:movieID/:foreignMovieID">
-            <MovieMatch sendToBotFunction={sendToBotFunction} />
+
+            <MovieMatch sendToBotFunction={sendToBotFunction} toggleBannerVisibility={toggleBannerVisibility}/>
+
           </Route>
 
           <Route path="/watchlist">
