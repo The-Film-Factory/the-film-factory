@@ -387,7 +387,6 @@ const MovieCard = (props) => {
   } = props;
 
   const position1 = shortLang.indexOf(movieOgLang);
-  //   console.log(position1);
   /////////////////////////////////////////////////// to do: change null line 21 to placeholder image
 
   return (
