@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const Navigation = (props) => {
-  const { sendToTop, sendToTopFunction } = props;
+  const { sendToTopFunction } = props;
   const [bannerMovieVisibile, setBannerMovieVisible] = useState(false);
 
   // this function sets the visibility of the dropdown menu and banner movie, which we want to turn off on the homepage
@@ -37,10 +37,9 @@ const Navigation = (props) => {
           </li>
           
           <EnglishMovieSearch
-          toggleBanner={toggleBannerVisibility}
-          bannerMovieVisibile={bannerMovieVisibile}
-          sendToTop={sendToTop}
-          sendToTopFunction={sendToTopFunction}
+            toggleBanner={toggleBannerVisibility}
+            bannerMovieVisibile={bannerMovieVisibile}
+            sendToTopFunction={sendToTopFunction}
           />
         </ul>
       </nav>
