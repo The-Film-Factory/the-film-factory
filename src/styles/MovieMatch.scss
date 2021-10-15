@@ -1,21 +1,19 @@
 // =========================
-// english/foreign pairing  
+// pairing results (before push to database)  
 // =========================
 
 // main container 
 .matchedMovieContainer {
-    align-items: center;
+    max-width: 1800px;
     width: 100%;
+    align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin: 0 auto;
-
-    // individual card 📌📌📌 also stored in MoviePair scss sheet) 
+    // individual card 
     li {
-        align-items: center;
-        width: 35%;
-        display: flex;
+      align-items: center;
     }
 
     button {
@@ -42,10 +40,6 @@
       border: 1px solid rgba( 255, 255, 255, 0.18 );
       box-shadow: 4px 4px rgb(80, 80, 80);
     } 
-
-    
-
-    // individual card (📌📌📌 also stored in MovieMatch scss sheet) 
     .movieMatchEnglishCard,
     .movieMatchForeignCard {
         // width: calc(50% - 20px);
@@ -97,13 +91,17 @@
     } 
 }
 
+// =========================
+// stored pairings (from database)   
+// =========================
 
 // main container 
 .displayPairs {
+  max-width: 1800px;
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
-
+  margin-top: 2rem; 
+  margin: 0 auto; 
   // individual pair 
   .pairContainer {
     display: flex;
@@ -113,6 +111,12 @@
       margin: 0;
     }  
   }
+
+.likeThis {
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+} 
 
   .arrow {
     font-size: 3.8rem;
@@ -132,86 +136,24 @@
     margin-bottom: 2rem;
     .imgContainer {
       width: 40%;
-      img {
-        max-width: 100%;
-      }
     }
   }
+}
 
   .displayPage {
+    align-items: center;
     display: flex; 
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-
-    button {
-      font-family: $font-secondary;
-      background-color: rgb(31, 31, 31);
-      color: white; 
-      border: 1px solid rgb(31, 31, 31);
-      font-size: 1rem; 
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      padding: 10px 15px;
-      cursor: pointer;
-      margin: 0 20px;
-    }
-
-    button:focus, 
-    button:hover {
-      transition: all 0.2s;
-      background-color: #333;
-      color: white; 
-      box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-      backdrop-filter: blur( 3px );
-      -webkit-backdrop-filter: blur( 3px );
-      border: 1px solid rgba( 255, 255, 255, 0.18 );
-      box-shadow: 4px 4px rgb(80, 80, 80);
-    }
+    padding: 25px; 
+    p {
+      margin: 25px; 
+    } 
   }
 
-}
-
-.likeThis {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.linkButton {
-  font-family: $font-secondary;
-  background-color: rgb(31, 31, 31);
-  border: 1px solid rgb(31, 31, 31);
-  font-size: 1rem; 
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  padding: 10px 15px;
-  cursor: pointer;
-  margin: 1rem auto;
-  width: 50%;
-
-  &:focus, 
-  &:hover {
-    transition: all 0.2s;
-    background-color: #333;
-    color: white; 
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 3px );
-    -webkit-backdrop-filter: blur( 3px );
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    box-shadow: 4px 4px rgb(80, 80, 80);
-    }
-}
-   
-
-main .linkButton {
-  color: white;
-}
-
-.linkContainer {
-  display: flex;
-  flex-direction: column;
-}
+// =========================
+// media queries  
+// =========================
 
 @media (max-width: 940px) {
     .displayPairs {
@@ -220,12 +162,10 @@ main .linkButton {
         justify-content: center;
         align-items: center;
       }
-
       .arrow {
         font-size: 2rem;
       }
     }
-
 }
 
 @media (max-width: 768px) {
@@ -246,23 +186,46 @@ main .linkButton {
         }
     }
     }
-
     .displayPairs {
       .pairContainer {
           flex-direction: column; 
           justify-content: center;
           align-items: center;
+          margin: 25px auto;
+          width: 80%; 
+          background: rgba( 255, 255, 255, 0.3 );
+          box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+          backdrop-filter: blur( 6.5px );
+          -webkit-backdrop-filter: blur( 6.5px );
+          border-radius: 10px;
+          border: 1px solid rgba( 255, 255, 255, 0.18 );
+          justify-self: center;
       }
-     
       li {
-        width: 60%;
+        width: 100%;
+        background-color: none; 
+        box-shadow: none;
+        backdrop-filter: none;
+        border-radius: 0;
+        border: none;
+        justify-self: center;
+        display: row; 
+        margin: 0; 
+        padding: 25px 0; 
       }
+      .arrow {
+        display: none; 
+      } 
     }
+    .likeThis {
+      background-color: $color-tertiary; 
+      width: 100%; 
+      padding: 10px 0; 
+    } 
 }
 
 @media (max-width: 480px) {
     .matchedMovieContainer {
-      flex-direction: column;
       .movieMatchEnglishCard,
       .movieMatchForeignCard {
         width: 90%;
@@ -290,4 +253,3 @@ main .linkButton {
       }
     }
 }
-
