@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
-const HomePage = () => {
+const HomePage = (props) => {
+    const { toggleBannerVisibility } = props;
   return (
     <div className="homePage">
       <h2>
@@ -15,7 +16,11 @@ const HomePage = () => {
         <p className='watchlist'>
           See our public list of favourite English/foreign film pairings
           {' '}
-          <Link to="/watchlist">
+          <Link 
+            to="/watchlist" 
+            onClick={function(){
+                toggleBannerVisibility(false);
+            }}>
             here
           </Link>
           .

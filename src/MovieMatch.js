@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { handlePushToFirebase } from "./ourDbFunctions.js";
 
 const MovieMatch = (props) => {
-  const { sendToBotFunction } = props;
+  const { sendToBotFunction, toggleBannerVisibility } = props;
   const [englishFilmRes, setEnglishFilmRes] = useState([]);
   const [foreignFilmRes, setForeignFilmRes] = useState([]);
   const [viewMatch, setViewMatch] = useState(true);
@@ -85,7 +85,7 @@ const MovieMatch = (props) => {
         <h3>Saved!</h3>
         <div className="linkContainer">
           <Link className="linkButton" to={`/movie/${movieID}`}>Choose another recommendation for this film</Link>
-          <Link className="linkButton" to={'/watchlist'}>View this match among others in the public match list</Link>
+          <Link className="linkButton" to={'/watchlist'} onClick={() => toggleBannerVisibility(false)}>View this match among others in the public match list</Link>
         </div>
 
       </>
