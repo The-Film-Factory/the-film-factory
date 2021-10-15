@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MovieCard from "./MovieCard";
 import axios from "axios";
@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 
 import { handlePushToFirebase } from "./ourDbFunctions.js";
 
-const MovieMatch = () => {
-  const scroller = useRef(null);
+const MovieMatch = (props) => {
+  const { sendToBotFunction } = props;
   const [englishFilmRes, setEnglishFilmRes] = useState([]);
   const [foreignFilmRes, setForeignFilmRes] = useState([]);
   const [viewMatch, setViewMatch] = useState(true);
@@ -41,12 +41,12 @@ const MovieMatch = () => {
   );
 
   useEffect(function(){
-    scroller.current.scrollIntoView({ behavior: 'smooth', block: "start"});
-  });
+    sendToBotFunction();
+  })
 
   return (
     viewMatch === true ?
-      <div className="matchedMovieSection" ref={scroller}>
+      <div className="matchedMovieSection">
         <h3>You've made a recommendation!</h3>
         <ul className="matchedMovieContainer">
           <MovieCard
