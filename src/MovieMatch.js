@@ -50,13 +50,19 @@ const MovieMatch = (props) => {
         <h3>You've made a recommendation!</h3>
         <ul className="matchedMovieContainer">
           <MovieCard
-            key={englishFilmRes.id}
-            movieKey={englishFilmRes.id}
             cardClass={"movieMatchEnglishCard"}
-            imgClass={"imgContainer"}
+            imgClass={"movieMatchImgContainer"}
+            cardInformation={"movieMatchCardInformation"}
+            key={englishFilmRes.id}
+            movieTitle={englishFilmRes.original_title}
+            movieKey={englishFilmRes.id}
             movieOgLang={englishFilmRes.original_language}
-            movieTitle={englishFilmRes.title}
+            showOgLang={true}
             moviePoster={englishFilmRes.poster_path}
+            movieReleaseDate={englishFilmRes.release_date}
+            showMovieReleaseDate={true}
+            movieDescription={englishFilmRes.overview}
+            showMovieDescription={true}
           />
 
           {/* push englishMovieID and foreignMovieID into firebase */}
@@ -70,13 +76,19 @@ const MovieMatch = (props) => {
           </button>
 
           <MovieCard
-            key={foreignFilmRes.id}
-            movieKey={foreignFilmRes.id}
             cardClass={"movieMatchForeignCard"}
-            imgClass={"imgContainer"}
+            imgClass={"movieMatchImgContainer"}
+            cardInformation={"movieMatchCardInformation"}
+            key={foreignFilmRes.id}
+            movieTitle={foreignFilmRes.original_title}
+            movieKey={foreignFilmRes.id}
             movieOgLang={foreignFilmRes.original_language}
-            movieTitle={foreignFilmRes.title}
+            showOgLang={true}
             moviePoster={foreignFilmRes.poster_path}
+            movieReleaseDate={foreignFilmRes.release_date}
+            showMovieReleaseDate={true}
+            movieDescription={foreignFilmRes.overview}
+            showMovieDescription={true}
           />
         </ul>
       </div>
