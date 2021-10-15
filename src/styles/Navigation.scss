@@ -39,6 +39,9 @@ header {
                 font-size: 1rem; 
                 width: 250px;
                 padding-top: 5px; 
+                h1 {
+                    font-weight: 300; 
+                } 
             }
             li.englishMovieSearchContainer {
                 width: calc(100% - 340px);
