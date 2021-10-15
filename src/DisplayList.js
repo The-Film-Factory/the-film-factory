@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import MoviePair from "./MoviePair";
 
 const DisplayList = () => {
-  // empty use effect here as a memory leak plug as per class
-  // we don't know how or why this works please give feedback if you do
+  // // empty use effect here as a memory leak plug as per class
+  // // we don't know how or why this works please give feedback if you do
   useEffect(() => {
     return () => {};
   }, []);
