@@ -68,11 +68,11 @@ const DisplayList = () => {
         <h3>Fetching Public Matches from the Database</h3>
       )}
       <div className="displayPage">
-        <button onClick={nextPageClick}>Next page</button>
+        <button onClick={previousPageClick}>Previous page</button>
         <p>
           {pageNum + 1} of {paginatedMatchList.length}
         </p>
-        <button onClick={previousPageClick}>Previous page</button>
+        <button onClick={nextPageClick}>Next page</button>
       </div>
     </div>
   );
