@@ -16,6 +16,7 @@
         padding: 20px 0;
         animation: glow 1s ease-in-out infinite alternate;
     }
+    
     @keyframes glow {
         from {
             color: $color-secondary;
@@ -35,6 +36,8 @@
         padding: 50px;
         line-height: 150%;
     }
+
+
     // link to watchlist
     .watchlist {
         margin-top: 50px; 
@@ -51,8 +54,6 @@
         } 
         
     }
-
-    
 }
 
  

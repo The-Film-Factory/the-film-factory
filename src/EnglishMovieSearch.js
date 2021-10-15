@@ -48,7 +48,6 @@ const EnglishMovieSearch = (props) => {
   const getSearch = (query) => {
     if (query !== " ") {
       const newObj = movieResults;
-
       setSearchValue(query);
       setMoviesPicked(newObj);
       // toggles the visibility of the overal nav and main movie so they for sure appear

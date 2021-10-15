@@ -7,8 +7,8 @@ import DisplayList from "./DisplayList";
 import HomePage from "./HomePage";
 import { useRef, useState } from 'react';
 
-function App() {
 
+function App() {
   const topReference = useRef(null);
   const botReference = useRef(null);
   const [bannerMovieVisibile, setBannerMovieVisible] = useState(false);
@@ -20,6 +20,7 @@ function App() {
   const sendToBotFunction = function(){
     botReference.current.scrollIntoView({ behavior:'smooth', block: "end"});  
   }
+
 
   const toggleBannerVisibility = function (toggle) {
     if (toggle === true) {
@@ -34,7 +35,9 @@ function App() {
       <div className="App">
         <div ref={topReference}></div>
         <header>
+
           <Navigation sendToTopFunction={sendToTopFunction} toggleBannerVisibility={toggleBannerVisibility} bannerMovieVisibile={bannerMovieVisibile}/>
+
         </header>
         <Route exact path="/">
           <HomePage toggleBannerVisibility={toggleBannerVisibility}/>
@@ -46,7 +49,9 @@ function App() {
           </Route>
 
           <Route path="/movie/:movieID/:foreignMovieID">
+
             <MovieMatch sendToBotFunction={sendToBotFunction} toggleBannerVisibility={toggleBannerVisibility}/>
+
           </Route>
 
           <Route path="/watchlist">
@@ -57,14 +62,11 @@ function App() {
         <footer ref={botReference}>
           <p>
             Copyright © 2021
-            {' '}
             <a href="https://junocollege.com/">Juno College of Technology</a>
-            {' '}
             (formerly HackerYou)
           </p>
           <p>
             Data courtesy of
-            {' '}
             <a href="https://www.themoviedb.org/">Movie Database</a>
           </p>
         </footer>
