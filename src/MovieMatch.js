@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import MovieCard from "./MovieCard";
 import axios from "axios";
@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { handlePushToFirebase } from "./ourDbFunctions.js";
 
 const MovieMatch = () => {
+  const scroller = useRef(null);
   const [englishFilmRes, setEnglishFilmRes] = useState([]);
   const [foreignFilmRes, setForeignFilmRes] = useState([]);
   const [viewMatch, setViewMatch] = useState(true);
@@ -39,9 +40,13 @@ const MovieMatch = () => {
     [movieID, foreignMovieID]
   );
 
+  useEffect(function(){
+    scroller.current.scrollIntoView({ behavior: 'smooth', block: "start"});
+  });
+
   return (
     viewMatch === true ?
-      <div className="matchedMovieSection">
+      <div className="matchedMovieSection" ref={scroller}>
         <h3>You've made a recommendation!</h3>
         <ul className="matchedMovieContainer">
           <MovieCard

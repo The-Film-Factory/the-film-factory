@@ -7,7 +7,7 @@ import MovieCard from "./MovieCard";
 // once we received usersearch, we stored in moviePicked state
 const EnglishMovieSearch = (props) => {
   // these props are passed in to control the rendering conditions of the main dropdowns
-  const { toggleBanner, bannerMovieVisibile } = props;
+  const { toggleBanner, bannerMovieVisibile, sendToTop, sendToTopFunction } = props;
 
   const [searchValue, setSearchValue] = useState("");
   // create state to store selection
@@ -55,6 +55,7 @@ const EnglishMovieSearch = (props) => {
       toggleBanner(true);
       // toggles the visilibility of the dropdown to ensure it shows up when typing
       setDropdownVisibility(true);
+      sendToTopFunction();
     }
   };
 

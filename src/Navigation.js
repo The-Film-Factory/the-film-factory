@@ -3,7 +3,8 @@ import logo from "./assets/logo512.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-const Navigation = () => {
+const Navigation = (props) => {
+  const { sendToTop, sendToTopFunction } = props;
   const [bannerMovieVisibile, setBannerMovieVisible] = useState(false);
 
   // this function sets the visibility of the dropdown menu and banner movie, which we want to turn off on the homepage
@@ -26,7 +27,7 @@ const Navigation = () => {
             setBannerMovieVisible(false);
           }}
           >
-            <li className="logoContainer">
+            <li className="logoContainer" onClick={ () => sendToTopFunction()}>
               <img className="logo" src={logo} alt="The Film Factory logo" />
             </li>
           </Link>
@@ -38,6 +39,8 @@ const Navigation = () => {
           <EnglishMovieSearch
           toggleBanner={toggleBannerVisibility}
           bannerMovieVisibile={bannerMovieVisibile}
+          sendToTop={sendToTop}
+          sendToTopFunction={sendToTopFunction}
           />
         </ul>
       </nav>
