@@ -3,27 +3,22 @@
     flex-direction: row;
     .moviePairListEnglishCard,
     .moviePairListForeignCard{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        // width:30%;
         .moviePairListEnglishCardInfo,
         .moviePairListForeignCardInfo{
-            width:50%;
+            width:100%;
             h4{
-
-            }
-            p{
-                span{
-
-                }
-            }
-            .languageClass{
-
-            }
-            .releaseDateClass{
-
+                margin:0 0 10px 0;
+                padding:0;
             }
         }
     }
     .imgContainer{
-        width:50%;
+        width:100%;
         img{
             width:100%;
             height:100%;
