@@ -16,6 +16,7 @@ function App() {
   const sendToTopFunction = function(){
     topReference.current.scrollIntoView({ behavior:'smooth', block: "start"});   
   }
+  
   const sendToBotFunction = function(){
     botReference.current.scrollIntoView({ behavior:'smooth', block: "end"});  
   }
