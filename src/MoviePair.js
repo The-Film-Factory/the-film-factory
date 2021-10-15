@@ -36,40 +36,52 @@ const MoviePair = ({ match }) => {
         })
       }, [match]);
 
-  return (
-    <>
-      {matchData.length > 0 ? (
-          <div className="pairContainer">
-            <MovieCard
-            key={matchData[0].id}
-            movieKey={matchData[0].id}
-            cardClass={"movieMatchEnglishCard"}
-            imgClass={"imgContainer"}
-            movieOgLang={matchData[0].original_language}
-            movieTitle={matchData[0].title}
-            moviePoster={matchData[0].poster_path}
-            />
-
-            <div className="likeThis">
-              <p>If you like this</p>
-              <p className="arrow">↩</p>
-              <p>You might like this</p>
-              <p className="arrow">↪</p>
-            </div>
-            
-            <MovieCard
-            key={matchData[1].id}
-            movieKey={matchData[1].id}
-            cardClass={"movieMatchForeignCard"}
-            imgClass={"imgContainer"}
-            movieOgLang={matchData[1].original_language}
-            movieTitle={matchData[1].title}
-            moviePoster={matchData[1].poster_path}
-            />
-          </div>
-      ) : null}
-    </>
-  );
-};
+      return (
+        <>
+          {matchData.length > 0 ? (
+              <div className="pairContainer">
+                <MovieCard
+                    cardClass={"moviePairListEnglishCard"}
+                    imgClass={"imgContainer"}
+                    cardInformation={"moviePairListEnglishCardInfo"}
+                    key={matchData[0].id}
+                    movieTitle={matchData[0].original_title}
+                    movieKey={matchData[0].id}
+                    movieOgLang={matchData[0].original_language}
+                    showOgLang={false}
+                    moviePoster={matchData[0].poster_path}
+                    movieReleaseDate={matchData[0].release_date}
+                    showMovieReleaseDate={false}
+                    movieDescription={matchData[0].overview}
+                    showMovieDescription={true}
+                />
+    
+                <div className="likeThis">
+                  <p>If you like this</p>
+                  <p className="arrow">↩</p>
+                  <p>You might like this</p>
+                  <p className="arrow">↪</p>
+                </div>
+                
+                <MovieCard
+                    cardClass={"moviePairListForeignCard"}
+                    imgClass={"imgContainer"}
+                    cardInformation={"moviePairListForeignCardInfo"}
+                    key={matchData[1].id}
+                    movieTitle={matchData[1].original_title}
+                    movieKey={matchData[1].id}
+                    movieOgLang={matchData[1].original_language}
+                    showOgLang={false}
+                    moviePoster={matchData[1].poster_path}
+                    movieReleaseDate={matchData[1].release_date}
+                    showMovieReleaseDate={false}
+                    movieDescription={matchData[1].overview}
+                    showMovieDescription={true}
+                />
+              </div>
+          ) : null}
+        </>
+      );
+    };
 
 export default MoviePair;
