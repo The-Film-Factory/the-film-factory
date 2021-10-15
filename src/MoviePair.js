@@ -53,7 +53,7 @@ const MoviePair = ({ match }) => {
                     movieReleaseDate={matchData[0].release_date}
                     showMovieReleaseDate={false}
                     movieDescription={matchData[0].overview}
-                    showMovieDescription={true}
+                    showMovieDescription={false}
                 />
     
                 <div className="likeThis">
@@ -76,7 +76,7 @@ const MoviePair = ({ match }) => {
                     movieReleaseDate={matchData[1].release_date}
                     showMovieReleaseDate={false}
                     movieDescription={matchData[1].overview}
-                    showMovieDescription={true}
+                    showMovieDescription={false}
                 />
               </div>
           ) : null}
