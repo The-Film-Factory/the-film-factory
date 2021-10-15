@@ -44,6 +44,7 @@ const EnglishMovieSearch = (props) => {
     },
     [searchValue]
   );
+  
 
   const getSearch = (query) => {
     if (query !== " ") {
