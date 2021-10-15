@@ -10,9 +10,13 @@ import { useRef } from 'react';
 function App() {
 
   const topReference = useRef(null);
+  const botReference = useRef(null);
 
   const sendToTopFunction = function(){
     topReference.current.scrollIntoView({ behavior:'smooth', block: "start"});   
+  }
+  const sendToBotFunction = function(){
+    botReference.current.scrollIntoView({ behavior:'smooth', block: "end"});  
   }
 
   return (
@@ -20,7 +24,7 @@ function App() {
       <div className="App">
         <div ref={topReference}></div>
         <header>
-          <Navigation sendToTop={topReference} sendToTopFunction={sendToTopFunction}/>
+          <Navigation sendToTopFunction={sendToTopFunction}/>
         </header>
         <Route exact path="/">
           <HomePage />
@@ -32,7 +36,7 @@ function App() {
           </Route>
 
           <Route path="/movie/:movieID/:foreignMovieID">
-            <MovieMatch />
+            <MovieMatch sendToBotFunction={sendToBotFunction}/>
           </Route>
 
           <Route path="/watchlist">
@@ -40,7 +44,7 @@ function App() {
           </Route>
         </main>
 
-        <footer>
+        <footer ref={botReference}>
           <p>
             Copyright © 2021
             {' '}
