@@ -41,7 +41,7 @@
         
         .movieMatchCardInformation{
             z-index: 20;
-            background-color: rgba( 219, 240, 239, 0.7);
+            background-color: rgba( 219, 240, 239, 0.80);
             border-radius: 10px;
             padding:15px;
             height:100%;
@@ -62,6 +62,8 @@
         .movieMatchImgContainer {
             position: absolute;
             top:0;
+            left: 0; 
+            right: 0;
             height:100%;
             overflow: hidden;
             img{
@@ -103,7 +105,12 @@
 
   .arrow {
     font-size: 3.8rem;
+    display: block; 
   }
+
+  .youMay {
+    display: block; 
+  } 
 
   // individual card 
   li {

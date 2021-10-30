@@ -26,8 +26,7 @@ figure {
 }
 
 hr {
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
   height: 0;
   overflow: visible;
 }
@@ -140,8 +139,7 @@ fieldset {
 }
 
 legend {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   color: inherit;
   display: table;
   max-width: 100%;
@@ -159,8 +157,7 @@ textarea {
 }
 
 [type=checkbox], [type=radio] {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding: 0;
 }
 
@@ -212,13 +209,11 @@ template {
 }
 
 html {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 *, *:before, *:after {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 .sr-only {
@@ -236,77 +231,30 @@ html {
 }
 
 body {
-  text-align: center;
-  font-size: 125%;
-  font-family: "Lato", sans-serif;
   background-color: #DBF0EF;
+  font-family: "Lato", sans-serif;
+  font-size: 125%;
+  text-align: center;
 }
 
-h1 {
-  font-family: "Josefin Slab", serif;
-  font-size: 4rem;
-}
-
-input {
-  display: block;
-  width: 30%;
-  margin: 0 auto;
-  padding: 5px;
+h3 {
+  font-size: 2rem;
+  margin-top: 50px;
 }
 
 ul {
-  padding: 0;
+  text-align: left;
   width: 30%;
   margin: 0 auto;
-  text-align: left;
+  padding: 0;
 }
 
 li {
   list-style-type: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 25px;
-}
-
-li.searchResultLists {
-  padding: 0;
-  background-color: #ECC79C;
-  padding: 5px;
-}
-
-span {
-  font-weight: bold;
-}
-
-.movieContainer ul {
-  width: 90%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin: 25px auto;
-  padding: 0;
-}
-
-.movieContainer li {
-  border: 2px solid black;
-}
-
-a,
-a:visited {
-  color: black;
-}
-
-a:focus,
-a:hover {
-  background-color: blue;
 }
 
 img {
@@ -315,38 +263,660 @@ img {
      object-fit: contain;
 }
 
+a,
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+
 footer {
-  background-color: #C7B2D3;
-  padding: 5px;
   margin-top: 25px;
+  padding: 5px;
+}
+footer a,
+footer a:visited {
+  color: black;
+  border-bottom: 2px solid black;
+}
+footer a:focus,
+footer a:hover {
+  color: blue;
+  border-bottom: 2px solid blue;
+  transition: all 0.2s;
+}
+
+button {
+  font-family: "Lato", sans-serif;
+  background-color: #1f1f1f;
+  color: white;
+  border: 1px solid #1f1f1f;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+button:focus,
+button:hover {
+  transition: all 0.2s;
+  background-color: #333;
+  color: white;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 4px 4px #505050;
+}
+
+.homePage h2 {
+  font-family: "Josefin Slab", serif;
+  font-size: 3rem;
+  color: black;
+  font-weight: 700;
+  font-style: italic;
+  margin-top: 0;
+}
+.homePage .titleNeon {
+  font-size: 8rem;
+  display: block;
+  padding: 20px 0;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+          animation: glow 1s ease-in-out infinite alternate;
+}
+@-webkit-keyframes glow {
+  from {
+    color: #C7B2D3;
+    text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px white, 0 0 25px white, 0 0 30px white, 0 0 35px white, 0 0 45px white;
+  }
+  to {
+    color: black;
+    text-shadow: 0 0 10px white, 0 0 15px white, 0 0 20px white, 0 0 25px white, 0 0 30px white, 0 0 35px white, 0 0 40px white, 0 1 45px white;
+  }
+}
+@keyframes glow {
+  from {
+    color: #C7B2D3;
+    text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px white, 0 0 25px white, 0 0 30px white, 0 0 35px white, 0 0 45px white;
+  }
+  to {
+    color: black;
+    text-shadow: 0 0 10px white, 0 0 15px white, 0 0 20px white, 0 0 25px white, 0 0 30px white, 0 0 35px white, 0 0 40px white, 0 1 45px white;
+  }
+}
+.homePage .instructionContainer {
+  border: 5px dotted #C7B2D3;
+  text-align: left;
+  width: 40%;
+  margin: 25px auto;
+  padding: 50px;
+  line-height: 150%;
+}
+.homePage .watchlist {
+  margin-top: 50px;
+}
+.homePage .watchlist a,
+.homePage .watchlist a:visited {
+  color: black;
+  border-bottom: 2px solid black;
+}
+.homePage .watchlist a:focus,
+.homePage .watchlist a:hover {
+  color: blue;
+  border-bottom: 2px solid blue;
+  transition: all 0.2s;
+}
+
+@media (max-width: 940px) {
+  .homePage .titleNeon {
+    font-size: 6rem;
+  }
+  .homePage .instructionContainer {
+    width: 90%;
+  }
+}
+@media (max-width: 768px) {
+  .homePage .instructionContainer {
+    width: 80%;
+  }
+}
+@media (max-width: 480px) {
+  .homePage h2 {
+    font-size: 2rem;
+  }
+  .homePage .titleNeon {
+    font-size: 5rem;
+  }
+  .homePage .instructionContainer {
+    text-align: center;
+    padding: 25px;
+  }
+}
+header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 200px;
+  z-index: 100;
+}
+header nav ul.navigationContainer {
+  background-color: #C7B2D3;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+}
+header nav ul.navigationContainer li {
+  margin: 0;
+  padding: 0;
+}
+header nav ul.navigationContainer .logoContainer {
+  width: 90px;
+  padding: 0 15px;
+}
+header nav ul.navigationContainer .logoContainer .logo {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+header nav ul.navigationContainer .logoContainer .logo:focus,
+header nav ul.navigationContainer .logoContainer .logo:hover {
+  filter: drop-shadow(0 0 5px white);
+  transition: ease all 0.2s;
+}
+header nav ul.navigationContainer li.navFilmFactoryLogo {
+  font-family: "Josefin Slab", serif;
+  font-size: 1rem;
+  width: 250px;
+  padding-top: 5px;
+}
+header nav ul.navigationContainer li.englishMovieSearchContainer {
+  width: calc(100% - 340px);
+  padding-left: 5px;
+  padding-right: 25px;
+}
+
+h1 {
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  header nav ul.navigationContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  header nav ul.navigationContainer li.logoContainer {
+    position: absolute;
+    top: 20px;
+    left: 0;
+  }
+  header nav ul.navigationContainer li.navFilmFactoryLogo h1 {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+  header nav ul.navigationContainer li.englishMovieSearchContainer {
+    width: 100%;
+    padding-left: 85px;
+    padding-right: 25px;
+  }
+}
+header nav ul li.englishMovieSearchContainer .dropdownListForm {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+header nav ul li.englishMovieSearchContainer .dropdownListForm input {
+  width: 100%;
+  height: 55px;
+  display: block;
+  margin: 0;
+  padding: 0 10px;
+  border: none;
+  border-radius: 10px;
+}
+header nav ul li.englishMovieSearchContainer .dropdownListForm input:hover,
+header nav ul li.englishMovieSearchContainer .dropdownListForm input:focus {
+  filter: drop-shadow(0 0 5px white);
+  transition: ease all 0.2s;
+}
+header nav ul li.englishMovieSearchContainer ul.dropdownListUl {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100px;
+  left: 0;
+}
+header nav ul li.englishMovieSearchContainer ul.dropdownListUl li {
+  background-color: black;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  padding-left: 325px;
+}
+header nav ul li.englishMovieSearchContainer ul.dropdownListUl li p {
+  color: white;
+  margin: 0;
+  padding: 5px 0;
+}
+header nav ul li.englishMovieSearchContainer ul.dropdownListUl li:hover {
+  background-color: #c2c2c2;
+}
+header nav ul li.englishMovieSearchContainer ul.dropdownListUl li:hover p {
+  color: black;
+}
+header nav ul li.englishMovieSearchContainer ul.dropdownListUl .searchBarMovie {
+  background-color: black;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: flex-start;
+  position: absolute;
+  margin: 0;
+  padding: 0 0 0 25px;
+  overflow: hidden;
+  transition: ease all 0.15s;
+}
+header nav ul li.englishMovieSearchContainer ul.dropdownListUl .searchBarMovie .searchBarCardInformation {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+header nav ul li.englishMovieSearchContainer ul.dropdownListUl .searchBarMovie .searchBarCardInformation h4 {
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+header nav ul li.englishMovieSearchContainer ul.dropdownListUl .searchBarMovie .searchBarCardInformation .releaseDateClass {
+  font-size: 1rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+header nav ul li.englishMovieSearchContainer ul.dropdownListUl .searchBarMovie .searchBarCardInformation p {
+  font-size: 1rem;
+  text-align: justify;
+  text-justify: auto;
+  padding: 5px 45px 5px 0;
+}
+header nav ul li.englishMovieSearchContainer ul.dropdownListUl .searchBarMovie .searchBarCardInformation p span {
+  font-weight: 900;
+}
+header nav ul li.englishMovieSearchContainer ul.dropdownListUl .searchBarMovie .searchBarImageContainer {
+  max-width: 100px;
+  margin-right: 10px;
+}
+header nav ul li.englishMovieSearchContainer ul.dropdownListUl .searchBarMovie .searchBarImageContainer img {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+header nav ul li.englishMovieSearchContainer ul.dropdownListUl .searchBarMovie:hover,
+header nav ul li.englishMovieSearchContainer ul.dropdownListUl .searchBarMovie:focus {
+  background-color: black;
+  cursor: default;
+}
+header nav ul li.englishMovieSearchContainer ul.dropdownListUl .searchBarMovie:hover .searchBarCardInformation p,
+header nav ul li.englishMovieSearchContainer ul.dropdownListUl .searchBarMovie:hover .searchBarCardInformation h4,
+header nav ul li.englishMovieSearchContainer ul.dropdownListUl .searchBarMovie:focus .searchBarCardInformation p,
+header nav ul li.englishMovieSearchContainer ul.dropdownListUl .searchBarMovie:focus .searchBarCardInformation h4 {
+  color: #ECC79C;
+}
+
+@media (max-width: 768px) {
+  header nav ul.navigationContainer li.englishMovieSearchContainer ul.dropdownListUl li {
+    padding-left: 100px;
+  }
+  header nav ul.navigationContainer li.englishMovieSearchContainer ul.dropdownListUl .searchBarMovie {
+    height: 100%;
+    position: relative;
+    padding: 0 0 0 25px;
+  }
+  header nav ul.navigationContainer li.englishMovieSearchContainer ul.dropdownListUl .searchBarMovie .searchBarCardInformation h4 {
+    font-size: 1.25rem;
+  }
+  header nav ul.navigationContainer li.englishMovieSearchContainer ul.dropdownListUl .searchBarMovie .searchBarCardInformation .releaseDateClass {
+    position: relative;
+  }
+  header nav ul.navigationContainer li.englishMovieSearchContainer ul.dropdownListUl .searchBarMovie .searchBarImageContainer {
+    display: none;
+  }
+}
+.movieContainer .scrollContainer {
+  display: flex;
+  flex-direction: row;
+}
+.movieContainer .scrollContainer .transparencyBoxLeft,
+.movieContainer .scrollContainer .transparencyBoxRight {
+  position: absolute;
+  display: block;
+  width: 8vw;
+  height: 39rem;
+  z-index: 20;
+  background: #DBF0EF;
+}
+.movieContainer .scrollContainer .transparencyBoxLeft {
+  background: linear-gradient(90deg, #DBF0EF 80%, rgba(0, 212, 255, 0) 100%);
+}
+.movieContainer .scrollContainer .transparencyBoxRight {
+  background: #DBF0EF;
+  background: linear-gradient(90deg, rgba(0, 212, 255, 0) 0%, #DBF0EF 20%);
+  right: 0;
+}
+.movieContainer .scrollContainer ul {
+  display: flex;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  width: 90%;
+  margin: 25px auto;
+  padding: 25px 50px;
+  position: relative;
+  border: none;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.movieContainer .scrollContainer ul li.foreignMovieCardTopContainer {
+  height: 100%;
+  width: 250px;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(6.5px);
+  -webkit-backdrop-filter: blur(6.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: 0.5s;
+}
+.movieContainer .scrollContainer ul li.foreignMovieCardTopContainer .foreignMovieTextContainer {
+  position: relative;
+}
+.movieContainer .scrollContainer ul li.foreignMovieCardTopContainer .foreignMovieTextContainer h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+  padding-top: 55px;
+}
+.movieContainer .scrollContainer ul li.foreignMovieCardTopContainer .foreignMovieTextContainer p {
+  margin: 0;
+  padding: 0;
+}
+.movieContainer .scrollContainer ul li.foreignMovieCardTopContainer .foreignMovieTextContainer .languageClass {
+  position: absolute;
+  top: 25px;
+  left: 0;
+}
+.movieContainer .scrollContainer ul li.foreignMovieCardTopContainer .foreignMovieTextContainer .releaseDateClass {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.movieContainer .scrollContainer ul li.foreignMovieCardTopContainer .foreignMovieImageContainer {
+  height: 300px;
+}
+.movieContainer .scrollContainer ul li.foreignMovieCardTopContainer .foreignMovieImageContainer img {
+  height: 100%;
+  width: 100%;
+}
+.movieContainer .scrollContainer ul li.foreignMovieCardTopContainer:hover,
+.movieContainer .scrollContainer ul li.foreignMovieCardTopContainer:focus {
+  background-color: #ECC79C;
 }
 
 .matchedMovieContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
+  max-width: 1800px;
+  width: 100%;
+  align-items: center;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 auto;
+}
+.matchedMovieContainer li {
+  align-items: center;
+}
+.matchedMovieContainer .movieMatchEnglishCard,
+.matchedMovieContainer .movieMatchForeignCard {
+  width: calc(25% - 20px);
+  height: 545px;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  margin: 0 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+.matchedMovieContainer .movieMatchEnglishCard .imgContainer,
+.matchedMovieContainer .movieMatchForeignCard .imgContainer {
+  width: 50%;
+}
+.matchedMovieContainer .movieMatchEnglishCard .movieMatchCardInformation,
+.matchedMovieContainer .movieMatchForeignCard .movieMatchCardInformation {
+  z-index: 20;
+  background-color: rgba(219, 240, 239, 0.7);
+  border-radius: 10px;
+  padding: 15px;
+  height: 100%;
+  overflow: hidden;
+}
+.matchedMovieContainer .movieMatchEnglishCard .movieMatchCardInformation h4,
+.matchedMovieContainer .movieMatchForeignCard .movieMatchCardInformation h4 {
+  margin: 0;
+}
+.matchedMovieContainer .movieMatchEnglishCard .movieMatchCardInformation p,
+.matchedMovieContainer .movieMatchForeignCard .movieMatchCardInformation p {
+  margin: 10px 0;
+  text-align: justify;
+  text-justify: auto;
+}
+.matchedMovieContainer .movieMatchEnglishCard .movieMatchCardInformation p span,
+.matchedMovieContainer .movieMatchForeignCard .movieMatchCardInformation p span {
+  display: block;
+  font-weight: 900;
+}
+.matchedMovieContainer .movieMatchEnglishCard .movieMatchImgContainer,
+.matchedMovieContainer .movieMatchForeignCard .movieMatchImgContainer {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  overflow: hidden;
+  border: 2px solid red;
+}
+.matchedMovieContainer .movieMatchEnglishCard .movieMatchImgContainer img,
+.matchedMovieContainer .movieMatchForeignCard .movieMatchImgContainer img {
+  border-radius: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
-.movieMatchEnglishCard,
-.movieMatchForeignCard {
-  width: 20%;
+.displayPairs {
+  max-width: 1800px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  margin: 0 auto;
+}
+.displayPairs .pairContainer {
+  display: flex;
+  justify-content: space-around;
+}
+.displayPairs .pairContainer p {
+  margin: 0;
+}
+.displayPairs .likeThis {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.displayPairs .arrow {
+  font-size: 3.8rem;
+}
+.displayPairs li {
+  flex-direction: row;
+  width: 40%;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(6.5px);
+  -webkit-backdrop-filter: blur(6.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  justify-self: center;
+  margin-bottom: 2rem;
+}
+.displayPairs li .imgContainer {
+  width: 40%;
+}
+.displayPairs .displayPage {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.displayPairs .displayPage p {
+  margin: 25px;
 }
 
-.movieMatchEnglishCard h2 {
-  color: red;
+.linkButton {
+  font-family: "Lato", sans-serif;
+  background-color: #1f1f1f;
+  border: 1px solid #1f1f1f;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin: 1rem auto;
+  width: 50%;
+}
+.linkButton:focus, .linkButton:hover {
+  transition: all 0.2s;
+  background-color: #333;
+  color: white;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 4px 4px #505050;
 }
 
-.movieMatchForeignCard h2 {
-  color: blue;
+main .linkButton {
+  color: white;
 }
 
-.logo {
-  width: 30px;
+.linkContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 940px) {
+  .displayPairs li {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .displayPairs .arrow {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  .matchedMovieContainer {
+    flex-direction: column;
+  }
+  .matchedMovieContainer .movieMatchEnglishCard,
+.matchedMovieContainer .movieMatchForeignCard {
+    width: 80%;
+    margin: 5% 0;
+  }
+  .matchedMovieContainer .movieMatchImgContainer {
+    width: 100%;
+  }
+  .matchedMovieContainer .movieMatchImgContainer img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 100%;
+  }
+
+  .displayPairs .pairContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 25px auto;
+    width: 80%;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(6.5px);
+    -webkit-backdrop-filter: blur(6.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    justify-self: center;
+  }
+  .displayPairs li {
+    width: 100%;
+    background-color: none;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+    border-radius: 0;
+    border: none;
+    justify-self: center;
+    display: row;
+    margin: 0;
+    padding: 25px 0;
+  }
+  .displayPairs .arrow {
+    display: none;
+  }
+  .displayPairs .likeThis {
+    background-color: #ECC79C;
+    width: 100%;
+    padding: 10px 0;
+  }
+}
+@media (max-width: 480px) {
+  .matchedMovieContainer .movieMatchEnglishCard,
+.matchedMovieContainer .movieMatchForeignCard {
+    width: 90%;
+  }
+}
+.pairContainer {
+  display: flex;
+  flex-direction: row;
+}
+.pairContainer .moviePairListEnglishCard,
+.pairContainer .moviePairListForeignCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.pairContainer .moviePairListEnglishCard .moviePairListEnglishCardInfo,
+.pairContainer .moviePairListEnglishCard .moviePairListForeignCardInfo,
+.pairContainer .moviePairListForeignCard .moviePairListEnglishCardInfo,
+.pairContainer .moviePairListForeignCard .moviePairListForeignCardInfo {
+  width: 100%;
+}
+.pairContainer .moviePairListEnglishCard .moviePairListEnglishCardInfo h4,
+.pairContainer .moviePairListEnglishCard .moviePairListForeignCardInfo h4,
+.pairContainer .moviePairListForeignCard .moviePairListEnglishCardInfo h4,
+.pairContainer .moviePairListForeignCard .moviePairListForeignCardInfo h4 {
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+.pairContainer .imgContainer {
+  width: 100%;
+}
+.pairContainer .imgContainer img {
+  width: 100%;
+  height: 100%;
 }/*# sourceMappingURL=App.css.map */

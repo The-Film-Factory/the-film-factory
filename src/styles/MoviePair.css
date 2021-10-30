@@ -1,0 +1,31 @@
+.pairContainer {
+  display: flex;
+  flex-direction: row;
+}
+.pairContainer .moviePairListEnglishCard,
+.pairContainer .moviePairListForeignCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.pairContainer .moviePairListEnglishCard .moviePairListEnglishCardInfo,
+.pairContainer .moviePairListEnglishCard .moviePairListForeignCardInfo,
+.pairContainer .moviePairListForeignCard .moviePairListEnglishCardInfo,
+.pairContainer .moviePairListForeignCard .moviePairListForeignCardInfo {
+  width: 100%;
+}
+.pairContainer .moviePairListEnglishCard .moviePairListEnglishCardInfo h4,
+.pairContainer .moviePairListEnglishCard .moviePairListForeignCardInfo h4,
+.pairContainer .moviePairListForeignCard .moviePairListEnglishCardInfo h4,
+.pairContainer .moviePairListForeignCard .moviePairListForeignCardInfo h4 {
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+.pairContainer .imgContainer {
+  width: 100%;
+}
+.pairContainer .imgContainer img {
+  width: 100%;
+  height: 100%;
+}/*# sourceMappingURL=MoviePair.css.map */

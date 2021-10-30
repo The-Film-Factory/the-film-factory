@@ -402,7 +402,7 @@ const MovieCard = (props) => {
         ) : null}
         {showMovieDescription ? (
           <p>
-            <span>Description</span>: {movieDescription}
+            <span>Description:</span> {movieDescription}
           </p>
         ) : null}
       </div>

@@ -57,10 +57,11 @@ const MoviePair = ({ match }) => {
                 />
     
                 <div className="likeThis">
-                  <p>If you like this</p>
-                  <p className="arrow">↩</p>
-                  <p>You might like this</p>
-                  <p className="arrow">↪</p>
+                  <p>If you like this...
+                    <span className="arrow" aria-label="english film">↩</span>
+                    <span className="youMay">...you might like this</span>
+                    <span className="arrow" aria-label="foreign film">↪</span>
+                  </p>
                 </div>
                 
                 <MovieCard
